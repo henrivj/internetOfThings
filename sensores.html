@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Catálogo técnico de sensores IoT e industriais: conceito, funcionamento, especificações, sinal e integração com Arduino, ESP32 e Raspberry Pi." />
+
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<script src="./assets/js/scriptSensores.js" defer></script>
+
+		<!-- bootstrap -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- font awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+		<!-- google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+		<title>Sensores IoT</title>
+	</head>
+
+	<body>
+		<header class="fixed-top bg-blur p-2 px-md-4 d-flex justify-content-evenly align-items-center">
+			<a href="./index.html" class="px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill">
+				<i class="fa-solid fa-industry hvj-text"></i> Home
+			</a>
+
+			<nav class="d-flex justify-content-evenly align-items-center">
+				<a href="./robos.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Robôs</a>
+				<a href="./sensores.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Sensores</a>
+				<a href="./arduino.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Arduino</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="container d-flex vh-50 align-items-center">
+				<div>
+					<span class="hvj-outline hvj-text rounded-pill px-3 py-1 d-inline-block mb-3">C1, C2, C4 &middot; Sensoriamento e IoT</span>
+					<h1 class="display-4 fw-bold hvj-text">Catálogo de Sensores IoT</h1>
+					<p class="lead">
+						12 sensores usados em projetos com Arduino, ESP32, Raspberry Pi e CLPs — conceito, funcionamento,
+						especificações, tipo de sinal e aplicações industriais.
+					</p>
+				</div>
+			</section>
+
+			<!-- filtro por categoria -->
+			<section class="container mb-4">
+				<p class="hvj-text small text-uppercase fw-bold mb-2">Filtrar por categoria</p>
+				<div class="d-flex flex-wrap gap-2" id="filtros-categoria">
+					<button class="filter-btn active" data-categoria="todos">Todos</button>
+					<button class="filter-btn" data-categoria="Temperatura">Temperatura</button>
+					<button class="filter-btn" data-categoria="Distância">Distância</button>
+					<button class="filter-btn" data-categoria="Movimento">Movimento</button>
+					<button class="filter-btn" data-categoria="Luminosidade">Luminosidade</button>
+					<button class="filter-btn" data-categoria="Proximidade">Proximidade</button>
+					<button class="filter-btn" data-categoria="Gás">Gás</button>
+					<button class="filter-btn" data-categoria="Umidade">Umidade</button>
+					<button class="filter-btn" data-categoria="Fluxo">Fluxo</button>
+					<button class="filter-btn" data-categoria="Corrente">Corrente</button>
+					<button class="filter-btn" data-categoria="Nível">Nível</button>
+					<button class="filter-btn" data-categoria="RFID">RFID</button>
+				</div>
+			</section>
+
+			<!-- catálogo em grid de cards -->
+			<section class="container mb-3">
+				<div class="row g-3" id="grid-sensores">
+					<!-- DHT22 -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Temperatura">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-dht22">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/dht22.jpg" alt="Módulo sensor DHT22" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Temperatura e Umidade</span>
+							<h3 class="fs-5 hvj-text">DHT22 (AM2302)</h3>
+							<p class="small mb-0">Sensor digital combinado de temperatura e umidade relativa do ar.</p>
+						</div>
+					</div>
+
+					<!-- LM35 -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Temperatura">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-lm35">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/lm35.jpg" alt="Sensor de temperatura LM35" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Temperatura</span>
+							<h3 class="fs-5 hvj-text">LM35</h3>
+							<p class="small mb-0">Circuito integrado com saída analógica linear proporcional à temperatura.</p>
+						</div>
+					</div>
+
+					<!-- HC-SR04 -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Distância">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-hcsr04">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/hcsr04.jpg" alt="Módulo ultrassônico HC-SR04" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Distância</span>
+							<h3 class="fs-5 hvj-text">HC-SR04</h3>
+							<p class="small mb-0">Sensor ultrassônico de distância por tempo de voo do eco.</p>
+						</div>
+					</div>
+
+					<!-- PIR -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Movimento">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-pir">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/pir.png" alt="Módulo sensor PIR de movimento" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Movimento</span>
+							<h3 class="fs-5 hvj-text">PIR HC-SR501</h3>
+							<p class="small mb-0">Sensor passivo infravermelho de detecção de presença e movimento.</p>
+						</div>
+					</div>
+
+					<!-- LDR -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Luminosidade">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-ldr">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/ldr.jpg" alt="Fotorresistor LDR" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Luminosidade</span>
+							<h3 class="fs-5 hvj-text">LDR</h3>
+							<p class="small mb-0">Fotorresistor cuja resistência varia com a intensidade de luz.</p>
+						</div>
+					</div>
+
+					<!-- Indutivo -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Proximidade">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-indutivo">
+							<div class="card-img-frame rounded-3 mb-3 bg-grey-light">
+								<img src="./assets/img/sensores/indutivo.svg" alt="Esquema de funcionamento de um sensor indutivo" />
+							</div>
+							<span class="badge-categoria mb-2 d-inline-block">Proximidade</span>
+							<h3 class="fs-5 hvj-text">Sensor Indutivo LJ12A3</h3>
+							<p class="small mb-0">Detecta objetos metálicos por indução eletromagnética, sem contato.</p>
+						</div>
+					</div>
+
+					<!-- MQ-2 -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Gás">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-mq2">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/mq2.jpg" alt="Sensor de gás MQ-2" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Gás</span>
+							<h3 class="fs-5 hvj-text">MQ-2</h3>
+							<p class="small mb-0">Detecta fumaça e gases combustíveis como GLP, propano e metano.</p>
+						</div>
+					</div>
+
+					<!-- Higrômetro solo -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Umidade">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-higrometro">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/higrometro.jpg" alt="Sensor capacitivo de umidade do solo" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Umidade</span>
+							<h3 class="fs-5 hvj-text">Sensor Capacitivo de Umidade do Solo</h3>
+							<p class="small mb-0">Mede a umidade do solo por variação de capacitância.</p>
+						</div>
+					</div>
+
+					<!-- Fluxo -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Fluxo">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-fluxo">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/fluxo.jpg" alt="Sensor de fluxo de água YF-S201" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Fluxo</span>
+							<h3 class="fs-5 hvj-text">YF-S201</h3>
+							<p class="small mb-0">Mede a vazão de água por efeito Hall em uma turbina interna.</p>
+						</div>
+					</div>
+
+					<!-- ACS712 -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Corrente">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-acs712">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/acs712.jpg" alt="Sensor de corrente ACS712" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Corrente</span>
+							<h3 class="fs-5 hvj-text">ACS712</h3>
+							<p class="small mb-0">Mede corrente elétrica AC/DC por efeito Hall, sem contato direto.</p>
+						</div>
+					</div>
+
+					<!-- Nível -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Nível">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-nivel">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/nivel.jpg" alt="Sensor de nível tipo boia" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">Nível</span>
+							<h3 class="fs-5 hvj-text">Sensor de Nível (Boia)</h3>
+							<p class="small mb-0">Detecta o nível de líquidos por meio de um interruptor magnético flutuante.</p>
+						</div>
+					</div>
+
+					<!-- RFID -->
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="RFID">
+						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-rfid">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/rfid.jpg" alt="Módulo leitor RFID MFRC522" /></div>
+							<span class="badge-categoria mb-2 d-inline-block">RFID</span>
+							<h3 class="fs-5 hvj-text">MFRC522</h3>
+							<p class="small mb-0">Módulo leitor/gravador RFID de 13.56 MHz para identificação e controle de acesso.</p>
+						</div>
+					</div>
+				</div>
+				<p id="sem-resultado" class="text-center text-secondary my-5 d-none">Nenhum sensor encontrado para esta categoria.</p>
+			</section>
+		</main>
+
+		<footer class="bg-blur p-2 p-md-3">
+			<div class="d-flex align-items-center justify-content-evenly">
+				<a href="./index.html" class="hvj-text text-decoration-none d-none d-md-block">
+					<i class="fa-solid fa-industry"></i> IoT & Robótica Industrial
+				</a>
+				<p class="m-0 hvj-text">Catálogo de Sensores IoT</p>
+			</div>
+		</footer>
+
+		<!-- ================= MODAIS DE DETALHE ================= -->
+
+		<!-- DHT22 -->
+		<div class="modal fade" id="modal-dht22" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">DHT22 (AM2302) <span class="badge-categoria ms-2">Temperatura e Umidade</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/dht22.jpg" alt="Módulo sensor DHT22" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor digital que combina um termistor NTC e um elemento capacitivo de umidade em um único encapsulamento, entregando leituras já calibradas de fábrica.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> mede a resistência do termistor (temperatura) e a capacitância do elemento higroscópico (umidade), processa os valores internamente e os envia por um barramento digital de um único fio.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>3,3 a 6V</td></tr>
+							<tr><th>Faixa de temperatura</th><td>-40°C a 80°C (±0,5°C)</td></tr>
+							<tr><th>Faixa de umidade</th><td>0 a 100% RH (±2 a 5%)</td></tr>
+							<tr><th>Taxa de amostragem</th><td>~0,5 Hz (1 leitura a cada 2s)</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (1 fio)</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> monitoramento climático em estufas e data centers, controle de HVAC industrial, estações meteorológicas IoT.</p>
+						<p><strong>Exemplo de utilização:</strong> leitura periódica da temperatura e umidade de uma câmara fria, publicando os dados via MQTT para um painel de monitoramento em nuvem.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> Aosong (DHT22/AM2302 original), Adafruit (breakout DHT22), DFRobot (módulo DHT22 industrial).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- LM35 -->
+		<div class="modal fade" id="modal-lm35" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">LM35 <span class="badge-categoria ms-2">Temperatura</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/lm35.jpg" alt="Sensor de temperatura LM35" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> circuito integrado sensor de temperatura de precisão cuja tensão de saída é linearmente proporcional à temperatura em graus Celsius.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> utiliza a relação previsível entre a tensão base-emissor de um transistor e a temperatura, gerando 10 mV de saída para cada 1°C.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de alimentação</th><td>4 a 30V</td></tr>
+							<tr><th>Faixa de medição</th><td>-55°C a 150°C</td></tr>
+							<tr><th>Precisão</th><td>±0,5°C a 25°C</td></tr>
+							<tr><th>Saída</th><td>Linear, 10 mV/°C</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> controle de temperatura de motores e painéis elétricos, monitoramento térmico de fornos industriais, proteção térmica de equipamentos.</p>
+						<p><strong>Exemplo de utilização:</strong> ligado a uma entrada analógica do Arduino, converte a leitura em °C multiplicando o valor por (5,0/1023,0)×100.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> Texas Instruments (LM35 original), STMicroelectronics (equivalente), ON Semiconductor.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- HC-SR04 -->
+		<div class="modal fade" id="modal-hcsr04" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">HC-SR04 <span class="badge-categoria ms-2">Distância</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/hcsr04.jpg" alt="Módulo ultrassônico HC-SR04" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor que mede distância através do tempo de voo de um pulso ultrassônico emitido e refletido por um obstáculo.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> um transdutor emite um pulso ultrassônico de 40 kHz; o tempo até o eco retornar ao receptor é convertido em distância (d = v<sub>som</sub> × t ÷ 2).</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>5V</td></tr>
+							<tr><th>Alcance</th><td>2 cm a 400 cm</td></tr>
+							<tr><th>Precisão</th><td>±3 mm</td></tr>
+							<tr><th>Ângulo de medição</th><td>~15°</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (Trigger/Echo)</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> detecção de obstáculos em AGVs (veículos autoguiados), controle de nível em silos, contagem de peças em esteiras.</p>
+						<p><strong>Exemplo de utilização:</strong> aciona o pino Trigger por 10µs e mede a duração do pulso no pino Echo com <code>pulseIn()</code> para calcular a distância.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> ITead Studio (HC-SR04 original), Elegoo (módulo compatível), DFRobot (versão industrial impermeável).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- PIR -->
+		<div class="modal fade" id="modal-pir" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">PIR HC-SR501 <span class="badge-categoria ms-2">Movimento</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/pir.png" alt="Módulo sensor PIR de movimento" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor passivo infravermelho que detecta variações no calor emitido por corpos em movimento dentro de seu campo de visão.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> um elemento piroelétrico capta radiação infravermelha através de uma lente Fresnel; a variação do sinal causada por um corpo quente em movimento aciona a saída digital.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>5 a 20V</td></tr>
+							<tr><th>Alcance de detecção</th><td>3 a 7 m (ajustável)</td></tr>
+							<tr><th>Ângulo de detecção</th><td>~120°</td></tr>
+							<tr><th>Tempo de retenção</th><td>5s a 300s (ajustável)</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (HIGH/LOW)</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> sistemas de segurança e alarme em plantas industriais, acionamento automático de iluminação, contagem de pessoas em áreas restritas.</p>
+						<p><strong>Exemplo de utilização:</strong> saída conectada a uma entrada digital do Arduino, aciona um LED ou buzzer quando detecta movimento.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> padrão HC-SR501 (diversos fabricantes chineses), Panasonic (sensores PIR industriais EKMB), Honeywell (sensores PIR de segurança).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- LDR -->
+		<div class="modal fade" id="modal-ldr" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">LDR <span class="badge-categoria ms-2">Luminosidade</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/ldr.jpg" alt="Fotorresistor LDR" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> resistor cuja resistência elétrica varia conforme a intensidade de luz incidente sobre sua superfície (fotorresistor).</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> o material semicondutor (geralmente sulfeto de cádmio) libera elétrons livres proporcionalmente à luz incidente, reduzindo sua resistência quanto maior a luminosidade.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Resistência no escuro</th><td>&gt; 1 MΩ</td></tr>
+							<tr><th>Resistência sob luz</th><td>~1 a 10 kΩ</td></tr>
+							<tr><th>Tempo de resposta</th><td>Dezenas de milissegundos</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> controle automático de iluminação pública e industrial, sistemas de rastreamento solar, detecção de presença de luz em processos.</p>
+						<p><strong>Exemplo de utilização:</strong> montado em um divisor de tensão com um resistor fixo, a leitura analógica do Arduino determina se as luzes devem acender.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> Advanced Photonix, Excelitas Technologies, PerkinElmer (fotorresistores industriais).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Indutivo -->
+		<div class="modal fade" id="modal-indutivo" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">Sensor Indutivo LJ12A3 <span class="badge-categoria ms-2">Proximidade</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3 bg-grey-light">
+									<img src="./assets/img/sensores/indutivo.svg" alt="Esquema de funcionamento de um sensor indutivo" />
+								</div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor de proximidade que detecta objetos metálicos sem contato físico, através da geração de um campo eletromagnético.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> uma bobina interna gera um campo eletromagnético oscilante; ao se aproximar um objeto metálico, correntes parasitas (Eddy currents) alteram a amplitude do campo, sendo detectadas pelo circuito interno.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>6 a 36V DC</td></tr>
+							<tr><th>Distância de detecção</th><td>Até 4 mm</td></tr>
+							<tr><th>Corpo</th><td>Cilíndrico rosqueado M12</td></tr>
+							<tr><th>Saída</th><td>NPN ou PNP, NO ou NC</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (NPN/PNP)</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> detecção de peças metálicas em linhas de montagem, contagem de objetos em esteiras, fins de curso sem contato em máquinas.</p>
+						<p><strong>Exemplo de utilização:</strong> conectado a uma entrada digital de um CLP ou Arduino (com adaptação de nível), aciona um contador a cada peça metálica detectada.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> Omron (série E2E), Autonics (série PR12), Pepperl+Fuchs (sensores indutivos industriais).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- MQ-2 -->
+		<div class="modal fade" id="modal-mq2" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">MQ-2 <span class="badge-categoria ms-2">Gás</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/mq2.jpg" alt="Sensor de gás MQ-2" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor semicondutor de gás capaz de detectar fumaça e gases combustíveis como GLP, propano, metano e hidrogênio.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> um elemento sensível de dióxido de estanho (SnO2) varia sua condutividade elétrica na presença dos gases-alvo; quanto maior a concentração, maior a condutividade.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>5V</td></tr>
+							<tr><th>Faixa de detecção</th><td>300 a 10.000 ppm</td></tr>
+							<tr><th>Pré-aquecimento</th><td>Necessário (alguns minutos)</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico e Digital</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> detecção de vazamentos de gás em ambientes industriais, sistemas de alarme contra incêndio, monitoramento de qualidade do ar em galpões.</p>
+						<p><strong>Exemplo de utilização:</strong> a leitura analógica é comparada a um limiar (threshold); quando ultrapassado, aciona um alarme e envia notificação via IoT.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> Hanwei Electronics (fabricante original da série MQ), Winsen Electronics, Figaro Engineering (sensores de gás industriais).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Higrômetro solo -->
+		<div class="modal fade" id="modal-higrometro" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">Sensor Capacitivo de Umidade do Solo <span class="badge-categoria ms-2">Umidade</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/higrometro.jpg" alt="Sensor capacitivo de umidade do solo" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor que mede a umidade do solo através da variação da capacitância entre duas placas condutoras inseridas no solo.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> a água no solo atua como dielétrico; quanto maior a umidade, maior a constante dielétrica e, portanto, maior a capacitância medida pelo circuito oscilador do sensor.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>3,3 a 5,5V</td></tr>
+							<tr><th>Saída</th><td>0 a ~3V (invertida: menor tensão = mais úmido)</td></tr>
+							<tr><th>Corpo</th><td>Revestido, resistente à corrosão</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> agricultura de precisão e irrigação automatizada, monitoramento de umidade em estufas industriais, controle de processos que dependem de umidade do substrato.</p>
+						<p><strong>Exemplo de utilização:</strong> a leitura analógica aciona uma eletroválvula de irrigação quando o solo atinge um nível de secura predefinido.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> DFRobot (Capacitive Soil Moisture Sensor v2.0), Catnip Electronics, Adafruit (STEMMA Soil Sensor, versão I2C).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Fluxo -->
+		<div class="modal fade" id="modal-fluxo" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">YF-S201 <span class="badge-categoria ms-2">Fluxo</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/fluxo.jpg" alt="Sensor de fluxo de água" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor de efeito Hall que mede a vazão de água através da rotação de uma turbina interna proporcional ao fluxo.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> a água passa por uma turbina plástica que gira proporcionalmente à vazão; um sensor de efeito Hall conta os pulsos gerados pela rotação, permitindo calcular o volume escoado.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>5 a 24V</td></tr>
+							<tr><th>Faixa de vazão</th><td>1 a 30 L/min</td></tr>
+							<tr><th>Pressão máxima</th><td>1,75 MPa</td></tr>
+							<tr><th>Saída</th><td>Pulsos (~4,5 pulsos por litro)</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (pulsos)</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> monitoramento de consumo de água em processos industriais, controle de dosagem de líquidos, sistemas de irrigação e CIP (Clean-in-Place).</p>
+						<p><strong>Exemplo de utilização:</strong> a contagem de pulsos em uma interrupção do Arduino é usada para calcular o volume total de água consumido em tempo real.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> YF Series (fabricação genérica), Gredia, Digiten (sensores de vazão compatíveis com o YF-S201).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ACS712 -->
+		<div class="modal fade" id="modal-acs712" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">ACS712 <span class="badge-categoria ms-2">Corrente</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/acs712.jpg" alt="Sensor de corrente ACS712" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor de corrente baseado em efeito Hall, que mede corrente elétrica AC ou DC sem contato direto com o condutor.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> a corrente que passa por um condutor interno de baixa resistência gera um campo magnético proporcional; um sensor de efeito Hall integrado converte esse campo em uma tensão analógica proporcional à corrente.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de alimentação</th><td>5V</td></tr>
+							<tr><th>Faixas comerciais</th><td>±5A, ±20A ou ±30A</td></tr>
+							<tr><th>Sensibilidade</th><td>66 a 185 mV/A (conforme modelo)</td></tr>
+							<tr><th>Isolamento elétrico</th><td>2,1 kVRMS</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> monitoramento de consumo energético de motores industriais, proteção contra sobrecorrente, medição de eficiência energética em painéis elétricos.</p>
+						<p><strong>Exemplo de utilização:</strong> a leitura analógica é convertida em corrente (A) através da fórmula de sensibilidade, permitindo estimar o consumo de um motor em tempo real.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> Allegro MicroSystems (fabricante original do CI ACS712), SparkFun (módulo breakout), DFRobot (módulo de corrente industrial).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Nível -->
+		<div class="modal fade" id="modal-nivel" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">Sensor de Nível (Boia) <span class="badge-categoria ms-2">Nível</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/nivel.jpg" alt="Sensor de nível tipo boia" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> sensor eletromecânico que detecta o nível de líquidos através do movimento vertical de uma boia flutuante acoplada a um interruptor magnético (reed switch).</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> a boia flutua na superfície do líquido; ao subir ou descer, um ímã interno aciona um reed switch, abrindo ou fechando o circuito elétrico conforme o nível predefinido.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>5 a 24V DC (ou até 220V AC, conforme modelo)</td></tr>
+							<tr><th>Proteção</th><td>IP68 (submersível)</td></tr>
+							<tr><th>Material</th><td>Polipropileno resistente à corrosão</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (contato seco NA/NF)</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> controle de nível em reservatórios e caixas d'água industriais, proteção contra transbordamento em tanques, acionamento automático de bombas.</p>
+						<p><strong>Exemplo de utilização:</strong> a boia aciona um relé que liga a bomba de reposição quando o nível do reservatório está baixo, e desliga ao atingir o nível máximo.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> Madison M8000, Gefran (série level switches), SITRON (sensores de nível industriais).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- RFID -->
+		<div class="modal fade" id="modal-rfid" tabindex="-1">
+			<div class="modal-dialog modal-lg modal-dialog-scrollable">
+				<div class="modal-content bg-grey text-light">
+					<div class="modal-header border-secondary">
+						<h3 class="modal-title hvj-text">MFRC522 <span class="badge-categoria ms-2">RFID</span></h3>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-3 mb-3">
+							<div class="col-12 col-md-4">
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/rfid.jpg" alt="Módulo leitor RFID MFRC522" /></div>
+							</div>
+							<div class="col-12 col-md-8">
+								<p><strong>Conceito:</strong> módulo leitor/gravador de identificação por radiofrequência (RFID) que opera em 13,56 MHz, compatível com o padrão ISO/IEC 14443A.</p>
+								<p class="mb-0"><strong>Princípio de funcionamento:</strong> o módulo emite um campo eletromagnético que energiza um chip passivo (tag ou cartão) próximo; o chip responde transmitindo seu identificador único, lido pelo módulo via rádio de curto alcance.</p>
+							</div>
+						</div>
+						<table class="spec-table mb-3">
+							<tr><th>Tensão de operação</th><td>3,3V</td></tr>
+							<tr><th>Frequência</th><td>13,56 MHz</td></tr>
+							<tr><th>Distância de leitura</th><td>Até ~5 cm</td></tr>
+							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (SPI)</span></td></tr>
+						</table>
+						<p><strong>Aplicações industriais/IoT:</strong> controle de acesso a áreas restritas, identificação de ferramentas e insumos em linhas de produção, rastreabilidade de peças (tags RFID em pallets).</p>
+						<p><strong>Exemplo de utilização:</strong> ao aproximar um cartão RFID do módulo, o Arduino lê o UID (identificador único) e compara com uma lista de acessos autorizados.</p>
+						<p class="mb-0"><strong>Fabricantes/modelos comerciais:</strong> NXP Semiconductors (fabricante original do chip MFRC522), SunFounder (módulo breakout RC522), Waveshare (módulo RFID-RC522 industrial).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="Catálogo técnico e educativo sobre Robótica Industrial, Sensores e Internet das Coisas (IoT) na Indústria 4.0." />
+
+	<link rel="stylesheet" href="./assets/css/style.css" />
+	<script src="./assets/js/scriptGeral.js" defer></script>
+
+	<!-- animate on scroll (AOS) -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+	<!-- bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+	<!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet" />
+
+	<title>IoT & Robótica Industrial</title>
+</head>
+
+<body>
+	<header class="fixed-top bg-blur p-2 px-md-4 d-flex justify-content-evenly align-items-center">
+		<a href="./index.html" class="px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill">
+			<i class="fa-solid fa-industry hvj-text"></i> Home
+		</a>
+
+		<nav class="d-flex justify-content-evenly align-items-center">
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle hvj-text" type="button"
+					data-bs-toggle="dropdown">Robôs</button>
+				<ul class="dropdown-menu bg-blur">
+					<li><a class="dropdown-item hvj-text" href="./robos.html">Visão Geral</a></li>
+					<li>
+						<hr class="dropdown-divider" />
+					</li>
+					<li><a class="dropdown-item hvj-text" href="./robos.html#cartesiano">Cartesiano</a></li>
+					<li><a class="dropdown-item hvj-text" href="./robos.html#scara">SCARA</a></li>
+					<li><a class="dropdown-item hvj-text" href="./robos.html#articulado">Articulado</a></li>
+					<li><a class="dropdown-item hvj-text" href="./robos.html#cilindrico">Cilíndrico</a></li>
+					<li><a class="dropdown-item hvj-text" href="./robos.html#delta">Delta</a></li>
+					<li><a class="dropdown-item hvj-text" href="./robos.html#polar">Polar</a></li>
+					<li><a class="dropdown-item hvj-text" href="./robos.html#colaborativo">Colaborativo</a></li>
+				</ul>
+			</div>
+
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle hvj-text" type="button"
+					data-bs-toggle="dropdown">Sensores</button>
+				<ul class="dropdown-menu bg-blur">
+					<li><a class="dropdown-item hvj-text" href="./sensores.html">Catálogo Completo</a></li>
+				</ul>
+			</div>
+
+			<a href="./arduino.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Arduino</a>
+		</nav>
+	</header>
+
+	<main>
+		<!-- hero -->
+		<section class="container-fluid bg-grey d-flex align-items-center vh-100 text-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<span class="hvj-outline hvj-text rounded-pill px-3 py-1 d-inline-block mb-4"
+							data-aos="fade-right">
+							Indústria 4.0
+						</span>
+						<h1 class="display-3 fw-bold mb-4" data-aos="fade-right">
+							Robótica Industrial <span class="hvj-text">&</span> Internet das Coisas
+						</h1>
+						<h2 class="lead mb-4" data-aos="fade-right">
+							Catálogo técnico e educativo sobre os principais <span class="hvj-text">robôs
+								industriais</span> e
+							<span class="hvj-text">sensores IoT</span> utilizados em processos produtivos automatizados.
+						</h2>
+						<div class="d-flex flex-wrap gap-3" data-aos="fade-right">
+							<a href="./robos.html"
+								class="hvj-text hvj-outline rounded-pill text-decoration-none p-2 px-3">
+								Ver Robôs <i class="fa-solid fa-arrow-right"></i>
+							</a>
+							<a href="./sensores.html"
+								class="hvj-text hvj-outline rounded-pill text-decoration-none p-2 px-3">
+								Ver Sensores <i class="fa-solid fa-arrow-right"></i>
+							</a>
+							<a href="./arduino.html"
+								class="hvj-text hvj-outline rounded-pill text-decoration-none p-2 px-3">
+								Ver Arduino <i class="fa-solid fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- conceito de IoT -->
+		<section id="iot" class="container my-5 my-md-5 py-4 anchor-offset">
+			<div class="row align-items-center g-4">
+				<div class="col-12 col-md-6" data-aos="fade-right">
+					<span class="hvj-text small text-uppercase fw-bold">Conceito</span>
+					<h2>O que é a Internet das Coisas (IoT)?</h2>
+					<p>
+						A <span class="hvj-text">Internet das Coisas</span> (do inglês, <em>Internet of Things</em>) é o
+						paradigma em
+						que objetos físicos — máquinas, sensores, atuadores e dispositivos do dia a dia — são conectados
+						à
+						internet, capazes de coletar, trocar e processar dados de forma autônoma. Na indústria, esse
+						conceito é
+						chamado de <span class="hvj-text">IIoT</span> (Industrial Internet of Things) e conecta chão de
+						fábrica,
+						sistemas de gestão e nuvem em uma única rede de informação.
+					</p>
+					<p>
+						Um dispositivo IoT normalmente é formado por um sensor (capta dados do ambiente), um
+						microcontrolador
+						(processa e decide), um módulo de comunicação (envia os dados) e um sistema em nuvem ou local
+						que
+						armazena, analisa e apresenta essas informações.
+					</p>
+				</div>
+				<div class="col-12 col-md-6" data-aos="fade-left">
+					<div class="row g-3">
+						<div class="col-6">
+							<div class="bg-grey rounded-4 p-4 text-center h-100">
+								<i class="fa-solid fa-microchip fa-2x hvj-text mb-3"></i>
+								<p class="mb-0 small">Sensores capturam dados físicos do ambiente</p>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="bg-grey rounded-4 p-4 text-center h-100">
+								<i class="fa-solid fa-tower-broadcast fa-2x hvj-text mb-3"></i>
+								<p class="mb-0 small">Módulos de comunicação transmitem os dados</p>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="bg-grey rounded-4 p-4 text-center h-100">
+								<i class="fa-solid fa-cloud fa-2x hvj-text mb-3"></i>
+								<p class="mb-0 small">A nuvem armazena e processa as informações</p>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="bg-grey rounded-4 p-4 text-center h-100">
+								<i class="fa-solid fa-chart-line fa-2x hvj-text mb-3"></i>
+								<p class="mb-0 small">Painéis e sistemas tomam decisões com base nos dados</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- conceito de robótica industrial -->
+		<section id="robotica" class="container-fluid bg-grey py-5 anchor-offset">
+			<div class="container">
+				<div class="row align-items-center g-4">
+					<div class="col-12 col-md-6 order-md-2" data-aos="fade-left">
+						<span class="hvj-text small text-uppercase fw-bold">Conceito</span>
+						<h2>O que é Robótica Industrial?</h2>
+						<p>
+							A <span class="hvj-text">Robótica Industrial</span> é o ramo da automação responsável pelo
+							projeto,
+							construção e operação de robôs capazes de executar tarefas repetitivas, precisas ou
+							perigosas dentro de
+							um processo produtivo — como soldagem, pintura, montagem, paletização e movimentação de
+							materiais.
+						</p>
+						<p>
+							Um robô industrial é definido pela norma ISO 8373 como um manipulador multifuncional,
+							reprogramável, controlado automaticamente e programável em três ou mais eixos, podendo ser
+							fixo ou
+							móvel dentro da célula de manufatura.
+						</p>
+					</div>
+					<div class="col-12 col-md-6 order-md-1" data-aos="fade-right">
+						<img src="./assets/img/robos/articulado.jpg"
+							alt="Robôs industriais articulados realizando solda em linha de produção"
+							class="img-fluid rounded-4" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- importância da automação industrial -->
+		<section id="automacao" class="container my-5 py-4 anchor-offset">
+			<div class="row" data-aos="fade-up">
+				<div class="col-12 col-md-8">
+					<span class="hvj-text small text-uppercase fw-bold">Automação</span>
+					<h2>A Importância da Automação Industrial</h2>
+					<p>
+						A automação industrial substitui tarefas manuais, repetitivas ou arriscadas por sistemas
+						mecânicos e
+						eletrônicos controlados automaticamente. Ela é um dos pilares da Indústria 4.0, ao lado da IoT,
+						da
+						análise de dados e da integração entre sistemas.
+					</p>
+				</div>
+			</div>
+
+			<div class="row g-3 mt-2">
+				<div class="col-12 col-md-3" data-aos="zoom-in">
+					<div class="bg-grey rounded-4 p-4 h-100 text-center">
+						<i class="fa-solid fa-gauge-high fa-2x hvj-text mb-3"></i>
+						<h3 class="fs-5">Produtividade</h3>
+						<p class="small mb-0">Processos contínuos, sem fadiga, aumentando a velocidade de produção.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-3" data-aos="zoom-in">
+					<div class="bg-grey rounded-4 p-4 h-100 text-center">
+						<i class="fa-solid fa-bullseye fa-2x hvj-text mb-3"></i>
+						<h3 class="fs-5">Precisão</h3>
+						<p class="small mb-0">Repetibilidade milimétrica, reduzindo erros e retrabalho.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-3" data-aos="zoom-in">
+					<div class="bg-grey rounded-4 p-4 h-100 text-center">
+						<i class="fa-solid fa-shield-halved fa-2x hvj-text mb-3"></i>
+						<h3 class="fs-5">Segurança</h3>
+						<p class="small mb-0">Afasta pessoas de tarefas perigosas, tóxicas ou insalubres.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-3" data-aos="zoom-in">
+					<div class="bg-grey rounded-4 p-4 h-100 text-center">
+						<i class="fa-solid fa-sack-dollar fa-2x hvj-text mb-3"></i>
+						<h3 class="fs-5">Redução de Custos</h3>
+						<p class="small mb-0">Menos desperdício de material, energia e retrabalho ao longo do tempo.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- relação robótica x IoT -->
+		<section id="relacao-robotica-iot" class="container-fluid bg-grey py-5 anchor-offset">
+			<div class="container">
+				<div class="row align-items-center g-4">
+					<div class="col-12 col-md-6" data-aos="fade-right">
+						<span class="hvj-text small text-uppercase fw-bold">Integração</span>
+						<h2>A Relação entre Robótica e IoT</h2>
+						<p>
+							Um robô industrial tradicional executa uma sequência fixa de movimentos. Quando conectado à
+							IoT, esse
+							mesmo robô passa a <span class="hvj-text">enviar dados de operação</span> (posição,
+							temperatura dos
+							motores, ciclos executados, falhas) para sistemas de monitoramento em tempo real, e também a
+							<span class="hvj-text">receber comandos remotos</span> baseados em dados de outros sensores
+							da linha de
+							produção.
+						</p>
+						<p>
+							Essa integração viabiliza conceitos como manutenção preditiva, controle de qualidade
+							automatizado e
+							ajuste dinâmico da produção — a essência da Indústria 4.0.
+						</p>
+					</div>
+					<div class="col-12 col-md-6" data-aos="fade-left">
+						<div class="row g-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-3 d-flex align-items-center gap-3">
+									<i class="fa-solid fa-robot hvj-text fa-2x"></i>
+									<p class="mb-0 small">Robôs equipados com sensores próprios (encoders, torque,
+										visão) geram dados constantemente.</p>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-3 d-flex align-items-center gap-3">
+									<i class="fa-solid fa-network-wired hvj-text fa-2x"></i>
+									<p class="mb-0 small">Protocolos como MQTT, OPC UA e Profinet transportam esses
+										dados até sistemas supervisórios.</p>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-3 d-flex align-items-center gap-3">
+									<i class="fa-solid fa-chart-simple hvj-text fa-2x"></i>
+									<p class="mb-0 small">Painéis de controle e algoritmos analisam os dados e
+										retroalimentam o processo.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- conceito de sensoriamento -->
+		<section id="sensoriamento" class="container my-5 py-4 anchor-offset">
+			<div class="row align-items-center g-4">
+				<div class="col-12 col-md-6" data-aos="fade-right">
+					<span class="hvj-text small text-uppercase fw-bold">Conceito</span>
+					<h2>O que é Sensoriamento?</h2>
+					<p>
+						Sensoriamento é o processo de <span class="hvj-text">captar grandezas físicas do ambiente</span>
+						(temperatura, distância, luminosidade, presença, vibração, corrente elétrica etc.) e
+						convertê-las em
+						sinais elétricos que um microcontrolador — como um Arduino ou ESP32 — consegue interpretar.
+					</p>
+					<p>
+						Cada sensor é especializado em medir um tipo de grandeza, e possui características próprias como
+						faixa
+						de medição, precisão, tipo de sinal de saída (analógico, digital, I2C, SPI, UART) e tensão de
+						operação.
+					</p>
+				</div>
+				<div class="col-12 col-md-6" data-aos="fade-left">
+					<img src="./assets/img/sensores/dht22.jpg" alt="Módulo de sensor DHT22 de temperatura e umidade"
+						class="img-fluid rounded-4" />
+				</div>
+			</div>
+		</section>
+
+		<!-- importância dos sensores + relação sensores/comunicação/controle -->
+		<section id="sensores-automacao" class="container-fluid bg-grey py-5 anchor-offset">
+			<div class="container">
+				<div class="row" data-aos="fade-up">
+					<div class="col-12 col-md-8">
+						<span class="hvj-text small text-uppercase fw-bold">Automação</span>
+						<h2>A Importância dos Sensores na Automação Industrial</h2>
+						<p>
+							Sem sensores, um sistema automatizado é "cego": não sabe o que está acontecendo no processo.
+							Os
+							sensores são os olhos e ouvidos da automação — permitem que máquinas monitorem temperatura,
+							nível,
+							fluxo, presença e diversos outros parâmetros para tomar decisões corretas em tempo real.
+						</p>
+					</div>
+				</div>
+
+				<div class="row g-4 mt-2">
+					<div class="col-12 col-md-4" data-aos="zoom-in">
+						<div class="bg-grey-light rounded-4 p-4 h-100">
+							<i class="fa-solid fa-satellite-dish hvj-text fa-2x mb-3"></i>
+							<h3 class="fs-5">Sensores &rarr; Aquisição</h3>
+							<p class="small mb-0">
+								O sensor mede a grandeza física e gera um sinal elétrico correspondente (ex.: tensão
+								proporcional à
+								temperatura).
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-4" data-aos="zoom-in">
+						<div class="bg-grey-light rounded-4 p-4 h-100">
+							<i class="fa-solid fa-wifi hvj-text fa-2x mb-3"></i>
+							<h3 class="fs-5">Comunicação &rarr; Transporte</h3>
+							<p class="small mb-0">
+								O microcontrolador lê o sinal e transmite os dados via protocolos como Wi-Fi, MQTT,
+								RS-485 ou
+								Ethernet Industrial.
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-4" data-aos="zoom-in">
+						<div class="bg-grey-light rounded-4 p-4 h-100">
+							<i class="fa-solid fa-sliders hvj-text fa-2x mb-3"></i>
+							<h3 class="fs-5">Controle &rarr; Ação</h3>
+							<p class="small mb-0">
+								Com base nos dados recebidos, o sistema aciona atuadores (motores, válvulas, relés) para
+								corrigir ou
+								manter o processo.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- introdução ao arduino -->
+		<section id="arduino-intro" class="container my-5 py-4 anchor-offset">
+			<div class="row align-items-center g-4">
+				<div class="col-12 col-md-6" data-aos="fade-right">
+					<img src="./assets/img/geral/arduino-uno.jpg" alt="Placa Arduino Uno" class="img-fluid rounded-4" />
+				</div>
+				<div class="col-12 col-md-6" data-aos="fade-left">
+					<span class="hvj-text small text-uppercase fw-bold">Prototipagem</span>
+					<h2>Arduino: Conceito, Funcionamento e Programação</h2>
+					<p>
+						O <span class="hvj-text">Arduino</span> é uma plataforma de prototipagem eletrônica de código
+						aberto,
+						composta por uma placa com microcontrolador e um ambiente de programação (IDE) baseado em C/C++.
+						É a
+						porta de entrada mais comum para projetos de sensoriamento e IoT, permitindo ler sensores e
+						controlar
+						atuadores com poucas linhas de código.
+					</p>
+					<a href="./arduino.html"
+						class="hvj-text hvj-outline rounded-pill text-decoration-none p-2 px-3 d-inline-block">
+						Ver Arduino e Exemplos de Código <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA final -->
+		<section id="contato"
+			class="container-fluid d-flex justify-content-center align-items-center bg-grey vh-75 text-light">
+			<div class="text-center">
+				<h1 class="display-5 fw-bold mb-4 px-3" data-aos="fade-up">
+					Explore o <span class="hvj-text">catálogo completo</span>
+				</h1>
+				<h2 class="lead mb-5 px-3" data-aos="fade-up">
+					7 tipos de robôs industriais, 12 sensores IoT e exemplos de programação com Arduino.
+				</h2>
+
+				<nav class="d-flex flex-wrap justify-content-center gap-3" data-aos="zoom-in">
+					<a href="./robos.html"
+						class="hvj-outline rounded-pill text-light text-decoration-none d-inline-flex align-items-center px-4 py-3">
+						<i class="fa-solid fa-robot hvj-text me-2"></i> Robôs Industriais
+					</a>
+					<a href="./sensores.html"
+						class="hvj-outline rounded-pill text-light text-decoration-none d-inline-flex align-items-center px-4 py-3">
+						<i class="fa-solid fa-satellite-dish hvj-text me-2"></i> Sensores IoT
+					</a>
+					<a href="./arduino.html"
+						class="hvj-outline rounded-pill text-light text-decoration-none d-inline-flex align-items-center px-4 py-3">
+						<i class="fa-solid fa-microchip hvj-text me-2"></i> Arduino
+					</a>
+				</nav>
+			</div>
+		</section>
+	</main>
+
+	<footer class="container-fluid py-3 bg-black text-light">
+		<div class="container-lg d-flex flex-column flex-md-row justify-content-between align-items-center">
+			<a href="./index.html" class="d-inline-block mb-3 mb-md-0 text-decoration-none hvj-text">
+				<i class="fa-solid fa-industry"></i> IoT & Robótica Industrial
+			</a>
+			<p class="text-center small hvj-text m-0">Avaliação Prática &middot; Internet das Coisas &middot; SENAI SC
+			</p>
+		</div>
+	</footer>
+</body>
+
+</html>
