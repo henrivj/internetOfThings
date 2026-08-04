@@ -21,7 +21,7 @@
 	background: var(--main-color);
 }
 .hvj-outline {
-	outline: 2px solid var(--main-color);
+	outline: 0.125rem solid var(--main-color);
 }
 .hvj-underline {
 	text-decoration: underline;
@@ -58,8 +58,6 @@
 	max-height: 75vh;
 }
 
-/* ===== catálogo de robôs e sensores ===== */
-
 .bg-grey,
 .bg-grey-light,
 .manufacturer-card,
@@ -73,17 +71,17 @@
 }
 
 .card-item:hover {
-	transform: translateY(-4px);
-	outline: 2px solid var(--main-color);
+	transform: translateY(-0.25rem);
+	outline: 0.125rem solid var(--main-color);
 }
 
 .card-img-frame {
-	height: 220px;
+	height: 13.75rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	background-color: var(--main-grey-light);
+	background-color: transparent;
 }
 
 .card-img-frame img {
@@ -92,9 +90,45 @@
 	object-fit: contain;
 }
 
+.card-img-frame.img-plate {
+	background-color: #f4f6f8;
+	padding: 0.75rem;
+}
+
+model-viewer.arduino-3d {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	--poster-color: transparent;
+	outline: none;
+	border: none;
+}
+
+@media (min-width: 48rem) {
+	model-viewer.arduino-3d {
+		transform: translateX(12%);
+	}
+}
+
+.arduino-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+	background: linear-gradient(90deg, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.55) 40%, rgba(26, 26, 26, 0) 68%);
+}
+
+.arduino-hero .hero-content {
+	z-index: 2;
+	pointer-events: none;
+}
+
 .badge-signal {
 	display: inline-block;
-	border: 1px solid var(--main-color);
+	border: 0.0625rem solid var(--main-color);
 	color: var(--main-color);
 	border-radius: 50rem;
 	padding: 0.25rem 0.75rem;
@@ -122,7 +156,7 @@
 .spec-table th,
 .spec-table td {
 	padding: 0.6rem 0.75rem;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
 	text-align: left;
 	vertical-align: top;
 }
@@ -141,7 +175,7 @@
 }
 
 .filter-btn {
-	border: 1px solid var(--main-color);
+	border: 0.0625rem solid var(--main-color);
 	color: var(--main-color);
 	background: transparent;
 	border-radius: 50rem;
@@ -156,8 +190,103 @@
 	color: var(--main-black);
 }
 
+.catalog-filters-dropdown .dropdown-menu {
+	max-height: 60vh;
+	overflow-y: auto;
+}
+
+.catalog-filters-dropdown .dropdown-item.active,
+.catalog-filters-dropdown .dropdown-item:active {
+	background-color: var(--main-color);
+	color: var(--main-black) !important;
+}
+
+.filter-dropdown-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.catalog-indicators {
+	list-style: none;
+}
+
+.catalog-dot {
+	width: 0.75rem;
+	height: 0.75rem;
+	padding: 0;
+	border-radius: 50%;
+	border: 0.0625rem solid var(--main-color);
+	background-color: transparent;
+	transition: background-color 0.2s ease;
+}
+
+.catalog-dot.active {
+	background-color: var(--main-color);
+}
+
+.sensor-info-btn {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border: none;
+	border-radius: 50rem;
+	background-color: transparent;
+	color: var(--main-color);
+	font-size: 1.15rem;
+	line-height: 1;
+	transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sensor-info-btn:hover,
+.sensor-info-btn:focus-visible {
+	background-color: var(--main-color);
+	color: var(--main-black);
+}
+
 .anchor-offset {
-	scroll-margin-top: 90px;
+	scroll-margin-top: 5.625rem;
+}
+
+.filter-btn,
+.catalog-dot,
+.btn,
+a.hvj-outline,
+header nav a,
+footer a,
+.card-item .hvj-text {
+	transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+	will-change: transform;
+}
+
+.filter-btn:hover,
+.catalog-dot:hover,
+.btn:hover,
+a.hvj-outline:hover,
+header nav a:hover,
+footer a:hover {
+	transform: scale(1.07);
+}
+
+.sensor-info-btn:hover {
+	transform: scale(1.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.filter-btn,
+	.catalog-dot,
+	.btn,
+	a.hvj-outline,
+	header nav a,
+	footer a,
+	.sensor-info-btn {
+		transition: background-color 0.2s ease, color 0.2s ease;
+		transform: none !important;
+	}
 }
 
 .cursor-pointer {
@@ -168,4 +297,81 @@ pre code {
 	display: block;
 	white-space: pre-wrap;
 	word-break: break-word;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #d4d4d4;
+	background: none;
+	text-shadow: none;
+	font-family: "Consolas", "Courier New", monospace;
+	font-size: 0.85rem;
+	line-height: 1.6;
+	tab-size: 2;
+}
+
+pre[class*="language-"] {
+	margin: 0;
+	padding: 1rem 1.15rem;
+	background-color: #1f1f1f;
+	border: 0.0625rem solid #2b2b2b;
+	border-radius: 0.75rem;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"] {
+	padding: 0.15rem 0.4rem;
+	border-radius: 0.35rem;
+	background-color: #1f1f1f;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #6a9955;
+	font-style: italic;
+}
+
+.token.punctuation,
+.token.operator {
+	color: #d4d4d4;
+	background: transparent;
+}
+
+.token.string,
+.token.char,
+.token.attr-value {
+	color: #ce9178;
+}
+
+.token.keyword {
+	color: #569cd6;
+}
+
+.token.number,
+.token.boolean {
+	color: #b5cea8;
+}
+
+.token.function {
+	color: #dcdcaa;
+}
+
+.token.class-name,
+.token.builtin {
+	color: #4ec9b0;
+}
+
+.token.constant,
+.token.symbol {
+	color: #4fc1ff;
+}
+
+.token.macro,
+.token.directive,
+.token.directive-hash,
+.token.property,
+.token.tag {
+	color: #c586c0;
 }

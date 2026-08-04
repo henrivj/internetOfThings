@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
@@ -6,25 +6,17 @@
 		<meta name="description" content="Catálogo técnico dos 7 principais tipos de robôs industriais: conceito, funcionamento, aplicações e integração com IoT." />
 
 		<link rel="stylesheet" href="./assets/css/style.css" />
+		<script src="./assets/js/scriptCatalogo.js" defer></script>
 		<script src="./assets/js/scriptRobos.js" defer></script>
 
-		<!-- bootstrap -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"
-		></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-		<!-- font awesome -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
-		<!-- google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
@@ -33,656 +25,573 @@
 	</head>
 
 	<body>
-		<header class="fixed-top bg-blur p-2 px-md-4 d-flex justify-content-evenly align-items-center">
-			<a href="./index.html" class="px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill">
-				<i class="fa-solid fa-industry hvj-text"></i> Home
-			</a>
-
-			<nav class="d-flex justify-content-evenly align-items-center">
-				<div class="dropdown">
-					<button class="btn btn-default dropdown-toggle hvj-text" type="button" data-bs-toggle="dropdown">Robôs</button>
-					<ul class="dropdown-menu bg-blur">
-						<li><a class="dropdown-item hvj-text" href="#cartesiano">Cartesiano</a></li>
-						<li><a class="dropdown-item hvj-text" href="#scara">SCARA</a></li>
-						<li><a class="dropdown-item hvj-text" href="#articulado">Articulado</a></li>
-						<li><a class="dropdown-item hvj-text" href="#cilindrico">Cilíndrico</a></li>
-						<li><a class="dropdown-item hvj-text" href="#delta">Delta</a></li>
-						<li><a class="dropdown-item hvj-text" href="#polar">Polar</a></li>
-						<li><a class="dropdown-item hvj-text" href="#colaborativo">Colaborativo</a></li>
-					</ul>
-				</div>
-				<a href="./sensores.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Sensores</a>
-				<a href="./arduino.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Arduino</a>
-			</nav>
+		<header class="navbar navbar-expand-md fixed-top bg-blur px-3 px-md-4 py-2 justify-content-between">
+			<a href="./index.html" class="navbar-brand me-0 px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill"> <i class="fa-solid fa-industry hvj-text"></i> Home </a>
+			<button class="navbar-toggler border-0 shadow-none hvj-text p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menu">
+				<i class="fa-solid fa-bars fs-4 hvj-text"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navPrincipal">
+				<nav class="navbar-nav align-items-md-center gap-md-2 mt-2 mt-md-0 ms-md-auto">
+					<a href="./robos.html" class="nav-link hvj-text px-2">Robôs</a>
+					<a href="./sensores.html" class="nav-link hvj-text px-2">Sensores</a>
+					<a href="./arduino.html" class="nav-link hvj-text px-2">Arduino</a>
+				</nav>
+			</div>
 		</header>
 
 		<main>
-			<section class="container d-flex vh-50 align-items-center">
-				<div>
+			<section class="container-fluid bg-grey text-light d-flex align-items-center min-vh-100">
+				<div class="container" data-aos="fade-up">
 					<span class="hvj-outline hvj-text rounded-pill px-3 py-1 d-inline-block mb-3">C1 &middot; Sensoriamento e Robôs</span>
-					<h1 class="display-4 fw-bold hvj-text">Catálogo de Robôs Industriais</h1>
-					<p class="lead">7 configurações cinemáticas usadas na Indústria 4.0, com conceito, funcionamento, aplicações e modelos comerciais.</p>
+					<h1 class="display-3 fw-bold hvj-text">Catálogo de Robôs Industriais</h1>
+					<p class="lead col-lg-9">7 configurações cinemáticas usadas na Indústria 4.0, com conceito, funcionamento, aplicações e modelos comerciais.</p>
 				</div>
 			</section>
 
-			<!-- filtro rápido -->
-			<section class="container mb-4">
-				<div class="d-flex flex-wrap gap-2">
-					<a href="#cartesiano" class="filter-btn text-decoration-none">Cartesiano</a>
-					<a href="#scara" class="filter-btn text-decoration-none">SCARA</a>
-					<a href="#articulado" class="filter-btn text-decoration-none">Articulado</a>
-					<a href="#cilindrico" class="filter-btn text-decoration-none">Cilíndrico</a>
-					<a href="#delta" class="filter-btn text-decoration-none">Delta</a>
-					<a href="#polar" class="filter-btn text-decoration-none">Polar</a>
-					<a href="#colaborativo" class="filter-btn text-decoration-none">Colaborativo</a>
+			<section class="container catalog-filters-section mt-5 pt-md-4 mb-4" id="filtros-robos">
+				<p class="hvj-text small text-uppercase fw-bold mb-2">Filtrar por tipo</p>
+				<div class="d-none d-md-flex flex-wrap gap-2 justify-content-between catalog-filters">
+					<button class="filter-btn active" data-filter="todos">Todos</button>
+					<button class="filter-btn" data-filter="cartesiano">Cartesiano</button>
+					<button class="filter-btn" data-filter="scara">SCARA</button>
+					<button class="filter-btn" data-filter="articulado">Articulado</button>
+					<button class="filter-btn" data-filter="cilindrico">Cilíndrico</button>
+					<button class="filter-btn" data-filter="delta">Delta</button>
+					<button class="filter-btn" data-filter="polar">Polar</button>
+					<button class="filter-btn" data-filter="colaborativo">Colaborativo</button>
+				</div>
+
+				<div class="dropdown d-md-none catalog-filters-dropdown">
+					<button class="filter-btn filter-dropdown-toggle dropdown-toggle w-100 text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false">Todos</button>
+					<ul class="dropdown-menu bg-blur w-100">
+						<li><button type="button" class="dropdown-item hvj-text active" data-filter="todos">Todos</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="cartesiano">Cartesiano</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="scara">SCARA</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="articulado">Articulado</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="cilindrico">Cilíndrico</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="delta">Delta</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="polar">Polar</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="colaborativo">Colaborativo</button></li>
+					</ul>
 				</div>
 			</section>
 
-			<!-- ===================== CARTESIANO ===================== -->
-			<section id="cartesiano" class="container my-5 py-4 anchor-offset">
-				<div class="row g-4 align-items-center">
-					<div class="col-12 col-md-5">
-						<div class="card-img-frame rounded-4">
-							<img src="./assets/img/robos/cartesiano.jpg" alt="Robô cartesiano tipo pórtico (gantry) em ambiente industrial" />
-						</div>
-					</div>
-					<div class="col-12 col-md-7">
-						<span class="badge-categoria mb-2">Robô 1 de 7</span>
-						<h2 class="hvj-text">Robô Cartesiano</h2>
-						<p>
-							<strong>Conceito:</strong> robô cujos três eixos de movimento (X, Y, Z) são lineares e perpendiculares
-							entre si, seguindo o sistema de coordenadas cartesianas — por isso também é chamado de robô "gantry"
-							(pórtico).
-						</p>
-						<p>
-							<strong>Princípio de funcionamento:</strong> movimenta-se apenas por juntas prismáticas (deslizantes),
-							sem nenhuma junta rotativa. Cada eixo é independente e acionado por motores de passo ou servomotores
-							ligados a fusos de esferas, correias dentadas ou guias lineares, o que torna sua trajetória sempre em
-							linha reta.
-						</p>
-					</div>
+			<section class="container mb-5">
+				<div id="carrossel-robos" class="carousel slide" data-bs-touch="true">
+					<div class="carousel-inner"></div>
 				</div>
+				<div class="catalog-indicators d-flex flex-wrap justify-content-center gap-2 mt-4" id="indicadores-robos"></div>
 
-				<div class="row g-3 mt-2">
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
-							<ul class="mb-0">
-								<li>Estrutura rígida tipo pórtico, sem juntas rotativas</li>
-								<li>Repetibilidade muito alta: ±0,01 a 0,1 mm</li>
-								<li>Área de trabalho em formato de paralelepípedo</li>
-								<li>Programação simples (trajetórias lineares)</li>
-								<li>Boa capacidade de carga em relação ao porte</li>
-							</ul>
+				<div class="d-none" id="pool-robos">
+					<div class="col-12 robot-item" data-filter-value="cartesiano">
+						<div class="row g-4 align-items-center">
+							<div class="col-12 col-md-5">
+								<div class="card-img-frame rounded-4">
+									<img src="./assets/img/robos/cartesiano.jpg" alt="Robô cartesiano tipo pórtico (gantry) em ambiente industrial" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7">
+								<span class="badge-categoria mb-2">Robô 1 de 7</span>
+								<h2 class="hvj-text">Robô Cartesiano</h2>
+								<p><strong>Conceito:</strong> robô cujos três eixos de movimento (X, Y, Z) são lineares e perpendiculares entre si, seguindo o sistema de coordenadas cartesianas — por isso também é chamado de robô "gantry" (pórtico).</p>
+								<p><strong>Princípio de funcionamento:</strong> movimenta-se apenas por juntas prismáticas (deslizantes), sem nenhuma junta rotativa. Cada eixo é independente e acionado por motores de passo ou servomotores ligados a fusos de esferas, correias dentadas ou guias lineares, o que torna sua trajetória sempre em linha reta.</p>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
-							<ul class="mb-0">
-								<li>Pick and place de componentes</li>
-								<li>Corte e usinagem CNC</li>
-								<li>Impressão 3D industrial</li>
-								<li>Paletização de caixas</li>
-								<li>Inspeção dimensional automatizada</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="bg-grey-light rounded-4 p-4">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
-							<p class="mb-0">
-								Encoders em cada eixo e sensores de fim de curso reportam a posição em tempo real para CLPs conectados
-								em redes Ethernet Industrial ou Profinet, permitindo monitoramento remoto do ciclo de produção,
-								detecção de desvios de posição e integração com sistemas MES.
-							</p>
+						<div class="row g-3 mt-2">
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
+									<ul class="mb-0">
+										<li>Estrutura rígida tipo pórtico, sem juntas rotativas</li>
+										<li>Repetibilidade muito alta: ±0,01 a 0,1 mm</li>
+										<li>Área de trabalho em formato de paralelepípedo</li>
+										<li>Programação simples (trajetórias lineares)</li>
+										<li>Boa capacidade de carga em relação ao porte</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
+									<ul class="mb-0">
+										<li>Pick and place de componentes</li>
+										<li>Corte e usinagem CNC</li>
+										<li>Impressão 3D industrial</li>
+										<li>Paletização de caixas</li>
+										<li>Inspeção dimensional automatizada</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
-				<div class="row g-3">
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Festo &mdash; EXCM Gantry</h4>
-							<p class="small mb-0">Fabricante: Festo. Sistema gantry compacto de baixo peso, ideal para pick and place em alta velocidade.</p>
+						<div class="row mt-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-4">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
+									<p class="mb-0">Encoders em cada eixo e sensores de fim de curso reportam a posição em tempo real para CLPs conectados em redes Ethernet Industrial ou Profinet, permitindo monitoramento remoto do ciclo de produção, detecção de desvios de posição e integração com sistemas MES.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Yamaha &mdash; YK-XC Series</h4>
-							<p class="small mb-0">Fabricante: Yamaha Motor. Robô cartesiano modular usado em montagem eletrônica de precisão.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">IAI Corporation &mdash; TT Series</h4>
-							<p class="small mb-0">Fabricante: IAI Corporation. Atuadores lineares combináveis em 2 ou 3 eixos cartesianos.</p>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<hr class="border-secondary" />
+						<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
+						<div class="row g-3">
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Festo &mdash; EXCM Gantry</h4>
+									<p class="small mb-0">Fabricante: Festo. Sistema gantry compacto de baixo peso, ideal para pick and place em alta velocidade.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Yamaha &mdash; YK-XC Series</h4>
+									<p class="small mb-0">Fabricante: Yamaha Motor. Robô cartesiano modular usado em montagem eletrônica de precisão.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">IAI Corporation &mdash; TT Series</h4>
+									<p class="small mb-0">Fabricante: IAI Corporation. Atuadores lineares combináveis em 2 ou 3 eixos cartesianos.</p>
+								</div>
+							</div>
+						</div>
+					</div>
 
-			<!-- ===================== SCARA ===================== -->
-			<section id="scara" class="container my-5 py-4 anchor-offset">
-				<div class="row g-4 align-items-center">
-					<div class="col-12 col-md-5 order-md-2">
-						<div class="card-img-frame rounded-4">
-							<img src="./assets/img/robos/scara.jpg" alt="Robô SCARA industrial em bancada" />
+					<div class="col-12 robot-item" data-filter-value="scara">
+						<div class="row g-4 align-items-center">
+							<div class="col-12 col-md-5 order-md-2">
+								<div class="card-img-frame rounded-4">
+									<img src="./assets/img/robos/scara.jpg" alt="Robô SCARA industrial em bancada" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7 order-md-1">
+								<span class="badge-categoria mb-2">Robô 2 de 7</span>
+								<h2 class="hvj-text">Robô SCARA</h2>
+								<p><strong>Conceito:</strong> SCARA significa <em>Selective Compliant Assembly Robot Arm</em>. Possui dois eixos rotativos paralelos que se movem no plano horizontal e um eixo linear vertical, sendo rígido no eixo Z e "complacente" (flexível) no plano XY.</p>
+								<p><strong>Princípio de funcionamento:</strong> dois elos giram sobre eixos verticais paralelos (como um braço duplo), posicionando o punho em qualquer ponto do plano horizontal; um terceiro eixo linear desce ou sobe o efetuador, e um quarto eixo rotaciona o pulso.</p>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-7 order-md-1">
-						<span class="badge-categoria mb-2">Robô 2 de 7</span>
-						<h2 class="hvj-text">Robô SCARA</h2>
-						<p>
-							<strong>Conceito:</strong> SCARA significa <em>Selective Compliant Assembly Robot Arm</em>. Possui dois
-							eixos rotativos paralelos que se movem no plano horizontal e um eixo linear vertical, sendo rígido no
-							eixo Z e "complacente" (flexível) no plano XY.
-						</p>
-						<p>
-							<strong>Princípio de funcionamento:</strong> dois elos giram sobre eixos verticais paralelos (como um
-							braço duplo), posicionando o punho em qualquer ponto do plano horizontal; um terceiro eixo linear desce
-							ou sobe o efetuador, e um quarto eixo rotaciona o pulso.
-						</p>
-					</div>
-				</div>
 
-				<div class="row g-3 mt-2">
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
-							<ul class="mb-0">
-								<li>Alta velocidade em ciclos curtos e repetitivos</li>
-								<li>Repetibilidade de ±0,01 a 0,05 mm</li>
-								<li>Rígido no eixo vertical, flexível no plano horizontal</li>
-								<li>Payload típico entre 1 e 20 kg</li>
-								<li>Alcance entre 300 e 1200 mm</li>
-							</ul>
+						<div class="row g-3 mt-2">
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
+									<ul class="mb-0">
+										<li>Alta velocidade em ciclos curtos e repetitivos</li>
+										<li>Repetibilidade de ±0,01 a 0,05 mm</li>
+										<li>Rígido no eixo vertical, flexível no plano horizontal</li>
+										<li>Payload típico entre 1 e 20 kg</li>
+										<li>Alcance entre 300 e 1200 mm</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
+									<ul class="mb-0">
+										<li>Montagem eletrônica e inserção de componentes</li>
+										<li>Manuseio de placas de circuito impresso (PCB)</li>
+										<li>Parafusamento automatizado</li>
+										<li>Embalagem de pequenos produtos</li>
+										<li>Testes funcionais de qualidade</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
-							<ul class="mb-0">
-								<li>Montagem eletrônica e inserção de componentes</li>
-								<li>Manuseio de placas de circuito impresso (PCB)</li>
-								<li>Parafusamento automatizado</li>
-								<li>Embalagem de pequenos produtos</li>
-								<li>Testes funcionais de qualidade</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="bg-grey-light rounded-4 p-4">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
-							<p class="mb-0">
-								Controladores SCARA modernos publicam dados de cada ciclo (tempo, posição, torque) via OPC UA ou MQTT
-								para sistemas MES, permitindo rastreabilidade individual de cada peça montada e detecção antecipada de
-								desgaste mecânico.
-							</p>
+						<div class="row mt-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-4">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
+									<p class="mb-0">Controladores SCARA modernos publicam dados de cada ciclo (tempo, posição, torque) via OPC UA ou MQTT para sistemas MES, permitindo rastreabilidade individual de cada peça montada e detecção antecipada de desgaste mecânico.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
-				<div class="row g-3">
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Epson &mdash; G6 Series</h4>
-							<p class="small mb-0">Fabricante: Seiko Epson. SCARA de alta velocidade com alcance de até 650 mm, usado em montagem eletrônica.</p>
+						<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
+						<div class="row g-3">
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Epson &mdash; G6 Series</h4>
+									<p class="small mb-0">Fabricante: Seiko Epson. SCARA de alta velocidade com alcance de até 650 mm, usado em montagem eletrônica.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; SR-6iA</h4>
+									<p class="small mb-0">Fabricante: FANUC. SCARA compacto voltado para operações de pick and place em linhas de alta produção.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Yamaha &mdash; YK500XG</h4>
+									<p class="small mb-0">Fabricante: Yamaha Motor. SCARA de precisão para montagem e dispensação de adesivos.</p>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; SR-6iA</h4>
-							<p class="small mb-0">Fabricante: FANUC. SCARA compacto voltado para operações de pick and place em linhas de alta produção.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Yamaha &mdash; YK500XG</h4>
-							<p class="small mb-0">Fabricante: Yamaha Motor. SCARA de precisão para montagem e dispensação de adesivos.</p>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<hr class="border-secondary" />
+					<div class="col-12 robot-item" data-filter-value="articulado">
+						<div class="row g-4 align-items-center">
+							<div class="col-12 col-md-5">
+								<div class="card-img-frame rounded-4">
+									<img src="./assets/img/robos/articulado.jpg" alt="Robôs articulados de 6 eixos realizando solda" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7">
+								<span class="badge-categoria mb-2">Robô 3 de 7</span>
+								<h2 class="hvj-text">Robô Articulado</h2>
+								<p><strong>Conceito:</strong> robô cujas juntas são todas rotativas, imitando a estrutura de um braço humano. É o tipo mais comum na indústria, geralmente com 4 a 7 eixos de liberdade.</p>
+								<p><strong>Princípio de funcionamento:</strong> cada junta rotativa é acionada por um servomotor e conectada por elos rígidos; o controlador calcula a cinemática inversa para posicionar o efetuador na coordenada e orientação desejadas.</p>
+							</div>
+						</div>
 
-			<!-- ===================== ARTICULADO ===================== -->
-			<section id="articulado" class="container my-5 py-4 anchor-offset">
-				<div class="row g-4 align-items-center">
-					<div class="col-12 col-md-5">
-						<div class="card-img-frame rounded-4">
-							<img src="./assets/img/robos/articulado.jpg" alt="Robôs articulados de 6 eixos realizando solda" />
+						<div class="row g-3 mt-2">
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
+									<ul class="mb-0">
+										<li>Grande flexibilidade e alcance espacial (6 graus de liberdade)</li>
+										<li>Payload de poucos kg até mais de 1 tonelada</li>
+										<li>Repetibilidade de ±0,02 a 0,1 mm</li>
+										<li>Alta versatilidade de orientação do efetuador</li>
+										<li>Complexidade maior de programação (cinemática inversa)</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
+									<ul class="mb-0">
+										<li>Solda a arco e a ponto</li>
+										<li>Pintura industrial</li>
+										<li>Paletização de cargas pesadas</li>
+										<li>Manuseio de materiais</li>
+										<li>Usinagem e polimento robotizado</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-7">
-						<span class="badge-categoria mb-2">Robô 3 de 7</span>
-						<h2 class="hvj-text">Robô Articulado</h2>
-						<p>
-							<strong>Conceito:</strong> robô cujas juntas são todas rotativas, imitando a estrutura de um braço
-							humano. É o tipo mais comum na indústria, geralmente com 4 a 7 eixos de liberdade.
-						</p>
-						<p>
-							<strong>Princípio de funcionamento:</strong> cada junta rotativa é acionada por um servomotor e
-							conectada por elos rígidos; o controlador calcula a cinemática inversa para posicionar o efetuador na
-							coordenada e orientação desejadas.
-						</p>
-					</div>
-				</div>
 
-				<div class="row g-3 mt-2">
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
-							<ul class="mb-0">
-								<li>Grande flexibilidade e alcance espacial (6 graus de liberdade)</li>
-								<li>Payload de poucos kg até mais de 1 tonelada</li>
-								<li>Repetibilidade de ±0,02 a 0,1 mm</li>
-								<li>Alta versatilidade de orientação do efetuador</li>
-								<li>Complexidade maior de programação (cinemática inversa)</li>
-							</ul>
+						<div class="row mt-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-4">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
+									<p class="mb-0">Sensores de torque e corrente nos servomotores alimentam sistemas de manutenção preditiva; protocolos como EtherCAT e Profinet integram o robô à célula de manufatura inteligente, permitindo ajuste dinâmico do processo com base em dados de outras estações da linha.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
-							<ul class="mb-0">
-								<li>Solda a arco e a ponto</li>
-								<li>Pintura industrial</li>
-								<li>Paletização de cargas pesadas</li>
-								<li>Manuseio de materiais</li>
-								<li>Usinagem e polimento robotizado</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="bg-grey-light rounded-4 p-4">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
-							<p class="mb-0">
-								Sensores de torque e corrente nos servomotores alimentam sistemas de manutenção preditiva; protocolos
-								como EtherCAT e Profinet integram o robô à célula de manufatura inteligente, permitindo ajuste
-								dinâmico do processo com base em dados de outras estações da linha.
-							</p>
+						<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
+						<div class="row g-3">
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; M-20iA</h4>
+									<p class="small mb-0">Fabricante: FANUC. Robô articulado de 6 eixos, payload de 20 kg, usado em solda e manuseio.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">ABB &mdash; IRB 6700</h4>
+									<p class="small mb-0">Fabricante: ABB. Robô de grande porte para fundição, solda e manuseio pesado (até 300 kg).</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">KUKA &mdash; KR 210</h4>
+									<p class="small mb-0">Fabricante: KUKA. Robô articulado versátil de médio/grande porte para diversas aplicações industriais.</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
-				<div class="row g-3">
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; M-20iA</h4>
-							<p class="small mb-0">Fabricante: FANUC. Robô articulado de 6 eixos, payload de 20 kg, usado em solda e manuseio.</p>
+					<div class="col-12 robot-item" data-filter-value="cilindrico">
+						<div class="row g-4 align-items-center">
+							<div class="col-12 col-md-5 order-md-2">
+								<div class="card-img-frame img-plate rounded-4">
+									<img src="./assets/img/robos/cilindrico.png" alt="Diagrama esquemático da configuração cinemática de um robô cilíndrico" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7 order-md-1">
+								<span class="badge-categoria mb-2">Robô 4 de 7</span>
+								<h2 class="hvj-text">Robô Cilíndrico</h2>
+								<p><strong>Conceito:</strong> robô com uma junta rotativa na base e duas juntas prismáticas (lineares), que definem um volume de trabalho em formato cilíndrico.</p>
+								<p><strong>Princípio de funcionamento:</strong> a base gira em torno de um eixo vertical (coordenada θ), enquanto um eixo linear desloca o braço verticalmente (Z) e outro eixo linear o estende ou recolhe radialmente (r), posicionando o efetuador dentro do cilindro de trabalho.</p>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">ABB &mdash; IRB 6700</h4>
-							<p class="small mb-0">Fabricante: ABB. Robô de grande porte para fundição, solda e manuseio pesado (até 300 kg).</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">KUKA &mdash; KR 210</h4>
-							<p class="small mb-0">Fabricante: KUKA. Robô articulado versátil de médio/grande porte para diversas aplicações industriais.</p>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<hr class="border-secondary" />
+						<div class="row g-3 mt-2">
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
+									<ul class="mb-0">
+										<li>Estrutura compacta com boa relação alcance/espaço ocupado</li>
+										<li>Repetibilidade moderada a alta (±0,1 mm)</li>
+										<li>Bom acesso a espaços confinados e máquinas</li>
+										<li>Menor número de configurações comerciais atuais</li>
+										<li>Movimentos rápidos em linha reta e rotação simples</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
+									<ul class="mb-0">
+										<li>Alimentação (tending) de máquinas-ferramenta</li>
+										<li>Montagem em espaços reduzidos</li>
+										<li>Manipulação de peças em linhas de fundição</li>
+										<li>Pick and place em ambientes compactos</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 
-			<!-- ===================== CILÍNDRICO ===================== -->
-			<section id="cilindrico" class="container my-5 py-4 anchor-offset">
-				<div class="row g-4 align-items-center">
-					<div class="col-12 col-md-5 order-md-2">
-						<div class="card-img-frame rounded-4 bg-grey-light">
-							<img src="./assets/img/robos/cilindrico.png" alt="Diagrama esquemático da configuração cinemática de um robô cilíndrico" />
+						<div class="row mt-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-4">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
+									<p class="mb-0">Encoders absolutos nos eixos e sensores de proximidade se comunicam via barramentos de campo (fieldbus) como DeviceNet ou Profibus, permitindo supervisão remota da posição do braço e integração com CLPs da célula de manufatura.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-7 order-md-1">
-						<span class="badge-categoria mb-2">Robô 4 de 7</span>
-						<h2 class="hvj-text">Robô Cilíndrico</h2>
-						<p>
-							<strong>Conceito:</strong> robô com uma junta rotativa na base e duas juntas prismáticas (lineares), que
-							definem um volume de trabalho em formato cilíndrico.
-						</p>
-						<p>
-							<strong>Princípio de funcionamento:</strong> a base gira em torno de um eixo vertical (coordenada θ),
-							enquanto um eixo linear desloca o braço verticalmente (Z) e outro eixo linear o estende ou recolhe
-							radialmente (r), posicionando o efetuador dentro do cilindro de trabalho.
-						</p>
-					</div>
-				</div>
 
-				<div class="row g-3 mt-2">
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
-							<ul class="mb-0">
-								<li>Estrutura compacta com boa relação alcance/espaço ocupado</li>
-								<li>Repetibilidade moderada a alta (±0,1 mm)</li>
-								<li>Bom acesso a espaços confinados e máquinas</li>
-								<li>Menor número de configurações comerciais atuais</li>
-								<li>Movimentos rápidos em linha reta e rotação simples</li>
-							</ul>
+						<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
+						<div class="row g-3">
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">ST Robotics &mdash; R12 Cylindrical</h4>
+									<p class="small mb-0">Fabricante: ST Robotics. Robô cilíndrico compacto para laboratórios e linhas de pequeno porte.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Yaskawa &mdash; Motoman (linha cilíndrica)</h4>
+									<p class="small mb-0">Fabricante: Yaskawa. Histórico de robôs cilíndricos usados em tending de máquinas CNC.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Kawasaki &mdash; Linha cilíndrica legada</h4>
+									<p class="small mb-0">Fabricante: Kawasaki Robotics. Modelos cilíndricos utilizados historicamente em fundição.</p>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
-							<ul class="mb-0">
-								<li>Alimentação (tending) de máquinas-ferramenta</li>
-								<li>Montagem em espaços reduzidos</li>
-								<li>Manipulação de peças em linhas de fundição</li>
-								<li>Pick and place em ambientes compactos</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="bg-grey-light rounded-4 p-4">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
-							<p class="mb-0">
-								Encoders absolutos nos eixos e sensores de proximidade se comunicam via barramentos de campo
-								(fieldbus) como DeviceNet ou Profibus, permitindo supervisão remota da posição do braço e integração
-								com CLPs da célula de manufatura.
-							</p>
+					<div class="col-12 robot-item" data-filter-value="delta">
+						<div class="row g-4 align-items-center">
+							<div class="col-12 col-md-5">
+								<div class="card-img-frame rounded-4">
+									<img src="./assets/img/robos/delta.jpg" alt="Robô delta (paralelo) suspenso sobre esteira" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7">
+								<span class="badge-categoria mb-2">Robô 5 de 7</span>
+								<h2 class="hvj-text">Robô Delta</h2>
+								<p><strong>Conceito:</strong> robô paralelo composto por três braços leves que conectam uma base fixa (geralmente suspensa) a uma plataforma móvel, formando estruturas em paralelogramo.</p>
+								<p><strong>Princípio de funcionamento:</strong> os motores ficam fixos na base, reduzindo a massa em movimento, e acionam os braços superiores; hastes paralelas transmitem o movimento à plataforma inferior, mantendo a orientação do efetuador constante.</p>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
-				<div class="row g-3">
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">ST Robotics &mdash; R12 Cylindrical</h4>
-							<p class="small mb-0">Fabricante: ST Robotics. Robô cilíndrico compacto para laboratórios e linhas de pequeno porte.</p>
+						<div class="row g-3 mt-2">
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
+									<ul class="mb-0">
+										<li>Altíssima velocidade (até centenas de ciclos por minuto)</li>
+										<li>Baixa inércia — motores fixos na base</li>
+										<li>Payload reduzido, tipicamente até 3&ndash;8 kg</li>
+										<li>Área de trabalho em formato de domo</li>
+										<li>Repetibilidade elevada (±0,01 a 0,1 mm)</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
+									<ul class="mb-0">
+										<li>Picking de alta velocidade (alimentos e farmacêutica)</li>
+										<li>Embalagem primária e secundária</li>
+										<li>Triagem e classificação de peças pequenas</li>
+										<li>Montagem leve de precisão</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Yaskawa &mdash; Motoman (linha cilíndrica)</h4>
-							<p class="small mb-0">Fabricante: Yaskawa. Histórico de robôs cilíndricos usados em tending de máquinas CNC.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Kawasaki &mdash; Linha cilíndrica legada</h4>
-							<p class="small mb-0">Fabricante: Kawasaki Robotics. Modelos cilíndricos utilizados historicamente em fundição.</p>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<hr class="border-secondary" />
+						<div class="row mt-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-4">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
+									<p class="mb-0">Sistemas de visão computacional integrados via GigE Vision ou EtherNet/IP guiam o robô em tempo real, com dados de posição sincronizados a esteiras transportadoras por meio de encoders conectados à rede industrial.</p>
+								</div>
+							</div>
+						</div>
 
-			<!-- ===================== DELTA ===================== -->
-			<section id="delta" class="container my-5 py-4 anchor-offset">
-				<div class="row g-4 align-items-center">
-					<div class="col-12 col-md-5">
-						<div class="card-img-frame rounded-4">
-							<img src="./assets/img/robos/delta.jpg" alt="Robô delta (paralelo) suspenso sobre esteira" />
+						<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
+						<div class="row g-3">
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">ABB &mdash; IRB 360 FlexPicker</h4>
+									<p class="small mb-0">Fabricante: ABB. Um dos robôs delta mais usados no picking de alta velocidade.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; M-3iA</h4>
+									<p class="small mb-0">Fabricante: FANUC. Robô delta compacto para embalagem e triagem de pequenos produtos.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Omron &mdash; Quattro</h4>
+									<p class="small mb-0">Fabricante: Omron (ex-Adept). Robô paralelo de 4 braços para ciclos ultrarrápidos.</p>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-7">
-						<span class="badge-categoria mb-2">Robô 5 de 7</span>
-						<h2 class="hvj-text">Robô Delta</h2>
-						<p>
-							<strong>Conceito:</strong> robô paralelo composto por três braços leves que conectam uma base fixa
-							(geralmente suspensa) a uma plataforma móvel, formando estruturas em paralelogramo.
-						</p>
-						<p>
-							<strong>Princípio de funcionamento:</strong> os motores ficam fixos na base, reduzindo a massa em
-							movimento, e acionam os braços superiores; hastes paralelas transmitem o movimento à plataforma
-							inferior, mantendo a orientação do efetuador constante.
-						</p>
-					</div>
-				</div>
 
-				<div class="row g-3 mt-2">
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
-							<ul class="mb-0">
-								<li>Altíssima velocidade (até centenas de ciclos por minuto)</li>
-								<li>Baixa inércia — motores fixos na base</li>
-								<li>Payload reduzido, tipicamente até 3&ndash;8 kg</li>
-								<li>Área de trabalho em formato de domo</li>
-								<li>Repetibilidade elevada (±0,01 a 0,1 mm)</li>
-							</ul>
+					<div class="col-12 robot-item" data-filter-value="polar">
+						<div class="row g-4 align-items-center">
+							<div class="col-12 col-md-5 order-md-2">
+								<div class="card-img-frame img-plate rounded-4">
+									<img src="./assets/img/robos/polar.svg" alt="Diagrama esquemático da configuração cinemática de um robô polar/esférico" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7 order-md-1">
+								<span class="badge-categoria mb-2">Robô 6 de 7</span>
+								<h2 class="hvj-text">Robô Polar (Esférico)</h2>
+								<p><strong>Conceito:</strong> robô cujo volume de trabalho é definido por coordenadas esféricas, combinando uma junta de rotação na base, uma junta de inclinação e uma junta linear de extensão radial.</p>
+								<p><strong>Princípio de funcionamento:</strong> a base gira (θ), um braço se inclina verticalmente (φ) e um eixo prismático estende ou recolhe o braço radialmente (r), posicionando o efetuador dentro de um volume esférico. Foi a configuração do primeiro robô industrial da história, o Unimate (1961).</p>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
-							<ul class="mb-0">
-								<li>Picking de alta velocidade (alimentos e farmacêutica)</li>
-								<li>Embalagem primária e secundária</li>
-								<li>Triagem e classificação de peças pequenas</li>
-								<li>Montagem leve de precisão</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="bg-grey-light rounded-4 p-4">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
-							<p class="mb-0">
-								Sistemas de visão computacional integrados via GigE Vision ou EtherNet/IP guiam o robô em tempo real,
-								com dados de posição sincronizados a esteiras transportadoras por meio de encoders conectados à rede
-								industrial.
-							</p>
+						<div class="row g-3 mt-2">
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
+									<ul class="mb-0">
+										<li>Estrutura mecânica relativamente simples</li>
+										<li>Grande alcance vertical e de rotação</li>
+										<li>Menor rigidez e precisão que robôs articulados modernos</li>
+										<li>Hoje pouco fabricado, majoritariamente substituído por articulados</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
+									<ul class="mb-0">
+										<li>Fundição e manuseio de peças em prensas (uso histórico)</li>
+										<li>Solda a ponto em linhas legadas</li>
+										<li>Carregamento de máquinas</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
-				<div class="row g-3">
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">ABB &mdash; IRB 360 FlexPicker</h4>
-							<p class="small mb-0">Fabricante: ABB. Um dos robôs delta mais usados no picking de alta velocidade.</p>
+						<div class="row mt-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-4">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
+									<p class="mb-0">Em plantas que ainda operam robôs polares legados, sensores de posição são retrofitados com módulos de aquisição de dados (data loggers IoT), que convertem os sinais analógicos antigos em mensagens MQTT para monitoramento remoto e histórico de operação.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; M-3iA</h4>
-							<p class="small mb-0">Fabricante: FANUC. Robô delta compacto para embalagem e triagem de pequenos produtos.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Omron &mdash; Quattro</h4>
-							<p class="small mb-0">Fabricante: Omron (ex-Adept). Robô paralelo de 4 braços para ciclos ultrarrápidos.</p>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<hr class="border-secondary" />
+						<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais (Historicamente Relevantes)</h3>
+						<div class="row g-3">
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Unimation &mdash; Unimate</h4>
+									<p class="small mb-0">Fabricante: Unimation. O primeiro robô industrial do mundo, instalado na GM em 1961.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">AMF &mdash; Versatran</h4>
+									<p class="small mb-0">Fabricante: American Machine and Foundry. Um dos primeiros robôs polares comerciais, contemporâneo do Unimate.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Kawasaki &mdash; Linha inicial licenciada</h4>
+									<p class="small mb-0">Fabricante: Kawasaki Robotics. Produziu robôs polares sob licença da tecnologia Unimate no Japão.</p>
+								</div>
+							</div>
+						</div>
+					</div>
 
-			<!-- ===================== POLAR ===================== -->
-			<section id="polar" class="container my-5 py-4 anchor-offset">
-				<div class="row g-4 align-items-center">
-					<div class="col-12 col-md-5 order-md-2">
-						<div class="card-img-frame rounded-4 bg-grey-light">
-							<img src="./assets/img/robos/polar.svg" alt="Diagrama esquemático da configuração cinemática de um robô polar/esférico" />
+					<div class="col-12 robot-item" data-filter-value="colaborativo">
+						<div class="row g-4 align-items-center">
+							<div class="col-12 col-md-5">
+								<div class="card-img-frame rounded-4">
+									<img src="./assets/img/robos/colaborativo.png" alt="Robô colaborativo (cobot) operando ao lado de um humano" />
+								</div>
+							</div>
+							<div class="col-12 col-md-7">
+								<span class="badge-categoria mb-2">Robô 7 de 7</span>
+								<h2 class="hvj-text">Robô Colaborativo (Cobot)</h2>
+								<p><strong>Conceito:</strong> robô projetado para operar em contato direto e seguro com humanos no mesmo espaço de trabalho, sem a necessidade de gaiolas de proteção.</p>
+								<p><strong>Princípio de funcionamento:</strong> sensores de torque em cada junta detectam colisões e param o movimento instantaneamente; o software de segurança limita velocidade, força e energia cinética conforme normas como a ISO/TS 15066.</p>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-7 order-md-1">
-						<span class="badge-categoria mb-2">Robô 6 de 7</span>
-						<h2 class="hvj-text">Robô Polar (Esférico)</h2>
-						<p>
-							<strong>Conceito:</strong> robô cujo volume de trabalho é definido por coordenadas esféricas,
-							combinando uma junta de rotação na base, uma junta de inclinação e uma junta linear de extensão radial.
-						</p>
-						<p>
-							<strong>Princípio de funcionamento:</strong> a base gira (θ), um braço se inclina verticalmente (φ) e um
-							eixo prismático estende ou recolhe o braço radialmente (r), posicionando o efetuador dentro de um
-							volume esférico. Foi a configuração do primeiro robô industrial da história, o Unimate (1961).
-						</p>
-					</div>
-				</div>
 
-				<div class="row g-3 mt-2">
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
-							<ul class="mb-0">
-								<li>Estrutura mecânica relativamente simples</li>
-								<li>Grande alcance vertical e de rotação</li>
-								<li>Menor rigidez e precisão que robôs articulados modernos</li>
-								<li>Hoje pouco fabricado, majoritariamente substituído por articulados</li>
-							</ul>
+						<div class="row g-3 mt-2">
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
+									<ul class="mb-0">
+										<li>Payload tipicamente entre 3 e 16 kg</li>
+										<li>Baixa velocidade em modo colaborativo</li>
+										<li>Programação simplificada (ensino por demonstração)</li>
+										<li>Sensores de força/torque integrados nas juntas</li>
+										<li>Certificação de segurança para operação sem cerca</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-12 col-md-6">
+								<div class="bg-grey rounded-4 p-4 h-100">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
+									<ul class="mb-0">
+										<li>Montagem colaborativa lado a lado com operadores</li>
+										<li>Inspeção de qualidade</li>
+										<li>Paletização leve</li>
+										<li>Auxílio em bancadas de trabalho compartilhadas</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
-							<ul class="mb-0">
-								<li>Fundição e manuseio de peças em prensas (uso histórico)</li>
-								<li>Solda a ponto em linhas legadas</li>
-								<li>Carregamento de máquinas</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="bg-grey-light rounded-4 p-4">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
-							<p class="mb-0">
-								Em plantas que ainda operam robôs polares legados, sensores de posição são retrofitados com módulos
-								de aquisição de dados (data loggers IoT), que convertem os sinais analógicos antigos em mensagens
-								MQTT para monitoramento remoto e histórico de operação.
-							</p>
+						<div class="row mt-3">
+							<div class="col-12">
+								<div class="bg-grey-light rounded-4 p-4">
+									<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
+									<p class="mb-0">Cobots modernos possuem conectividade nativa (Ethernet/Wi-Fi) e APIs REST/MQTT, permitindo integração direta com sistemas MES/ERP e monitoramento de produtividade em painéis na nuvem, em tempo real.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais (Historicamente Relevantes)</h3>
-				<div class="row g-3">
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Unimation &mdash; Unimate</h4>
-							<p class="small mb-0">Fabricante: Unimation. O primeiro robô industrial do mundo, instalado na GM em 1961.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">AMF &mdash; Versatran</h4>
-							<p class="small mb-0">Fabricante: American Machine and Foundry. Um dos primeiros robôs polares comerciais, contemporâneo do Unimate.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Kawasaki &mdash; Linha inicial licenciada</h4>
-							<p class="small mb-0">Fabricante: Kawasaki Robotics. Produziu robôs polares sob licença da tecnologia Unimate no Japão.</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<hr class="border-secondary" />
-
-			<!-- ===================== COLABORATIVO ===================== -->
-			<section id="colaborativo" class="container my-5 py-4 anchor-offset">
-				<div class="row g-4 align-items-center">
-					<div class="col-12 col-md-5">
-						<div class="card-img-frame rounded-4">
-							<img src="./assets/img/robos/colaborativo.png" alt="Robô colaborativo (cobot) operando ao lado de um humano" />
-						</div>
-					</div>
-					<div class="col-12 col-md-7">
-						<span class="badge-categoria mb-2">Robô 7 de 7</span>
-						<h2 class="hvj-text">Robô Colaborativo (Cobot)</h2>
-						<p>
-							<strong>Conceito:</strong> robô projetado para operar em contato direto e seguro com humanos no mesmo
-							espaço de trabalho, sem a necessidade de gaiolas de proteção.
-						</p>
-						<p>
-							<strong>Princípio de funcionamento:</strong> sensores de torque em cada junta detectam colisões e param
-							o movimento instantaneamente; o software de segurança limita velocidade, força e energia cinética
-							conforme normas como a ISO/TS 15066.
-						</p>
-					</div>
-				</div>
-
-				<div class="row g-3 mt-2">
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-ruler-combined me-2"></i>Características Técnicas</h3>
-							<ul class="mb-0">
-								<li>Payload tipicamente entre 3 e 16 kg</li>
-								<li>Baixa velocidade em modo colaborativo</li>
-								<li>Programação simplificada (ensino por demonstração)</li>
-								<li>Sensores de força/torque integrados nas juntas</li>
-								<li>Certificação de segurança para operação sem cerca</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="bg-grey rounded-4 p-4 h-100">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-industry me-2"></i>Aplicações Industriais</h3>
-							<ul class="mb-0">
-								<li>Montagem colaborativa lado a lado com operadores</li>
-								<li>Inspeção de qualidade</li>
-								<li>Paletização leve</li>
-								<li>Auxílio em bancadas de trabalho compartilhadas</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="row mt-3">
-					<div class="col-12">
-						<div class="bg-grey-light rounded-4 p-4">
-							<h3 class="fs-5 hvj-text"><i class="fa-solid fa-network-wired me-2"></i>Integração com Automação e IoT</h3>
-							<p class="mb-0">
-								Cobots modernos possuem conectividade nativa (Ethernet/Wi-Fi) e APIs REST/MQTT, permitindo integração
-								direta com sistemas MES/ERP e monitoramento de produtividade em painéis na nuvem, em tempo real.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
-				<div class="row g-3">
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">Universal Robots &mdash; UR16e</h4>
-							<p class="small mb-0">Fabricante: Universal Robots. Payload de 16 kg, um dos cobots mais populares do mercado.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; CRX-10iA</h4>
-							<p class="small mb-0">Fabricante: FANUC. Cobot de fácil programação, indicado para pequenas e médias empresas.</p>
-						</div>
-					</div>
-					<div class="col-12 col-md-4">
-						<div class="manufacturer-card">
-							<h4 class="fs-6 fw-bold mb-1">ABB &mdash; YuMi</h4>
-							<p class="small mb-0">Fabricante: ABB. Cobot de dois braços, projetado especificamente para montagem colaborativa fina.</p>
+						<h3 class="fs-5 hvj-text mt-4 mb-3">Modelos Comerciais</h3>
+						<div class="row g-3">
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">Universal Robots &mdash; UR16e</h4>
+									<p class="small mb-0">Fabricante: Universal Robots. Payload de 16 kg, um dos cobots mais populares do mercado.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">FANUC &mdash; CRX-10iA</h4>
+									<p class="small mb-0">Fabricante: FANUC. Cobot de fácil programação, indicado para pequenas e médias empresas.</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="manufacturer-card">
+									<h4 class="fs-6 fw-bold mb-1">ABB &mdash; YuMi</h4>
+									<p class="small mb-0">Fabricante: ABB. Cobot de dois braços, projetado especificamente para montagem colaborativa fina.</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -691,9 +600,7 @@
 
 		<footer class="bg-blur p-2 p-md-3">
 			<div class="d-flex align-items-center justify-content-evenly">
-				<a href="./index.html" class="hvj-text text-decoration-none d-none d-md-block">
-					<i class="fa-solid fa-industry"></i> IoT & Robótica Industrial
-				</a>
+				<a href="./index.html" class="hvj-text text-decoration-none d-none d-md-block"> <i class="fa-solid fa-industry"></i> IoT & Robótica Industrial </a>
 				<p class="m-0 hvj-text">Catálogo de Robôs Industriais</p>
 			</div>
 		</footer>

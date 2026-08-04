@@ -1,4 +1,12 @@
-// expande/recolhe todos os exemplos de código de uma vez
+document.addEventListener('DOMContentLoaded', () => {
+	if (typeof AOS !== 'undefined') {
+		document.querySelectorAll('main section:not(:first-of-type) .row > [class*="col-"]').forEach((col) => {
+			if (!col.hasAttribute('data-aos')) col.setAttribute('data-aos', 'fade-up');
+		});
+		AOS.init({ duration: 700, once: true, offset: 80 });
+	}
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 	const secaoExemplos = document.querySelectorAll('main details');
 	if (secaoExemplos.length === 0) return;

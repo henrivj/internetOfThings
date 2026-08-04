@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
@@ -8,23 +8,22 @@
 		<link rel="stylesheet" href="./assets/css/style.css" />
 		<script src="./assets/js/scriptArduino.js" defer></script>
 
-		<!-- bootstrap -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"
-		></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-		<!-- font awesome -->
+		<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-arduino.min.js" defer></script>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
-		<!-- google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
@@ -33,50 +32,41 @@
 	</head>
 
 	<body>
-		<header class="fixed-top bg-blur p-2 px-md-4 d-flex justify-content-evenly align-items-center">
-			<a href="./index.html" class="px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill">
-				<i class="fa-solid fa-industry hvj-text"></i> Home
-			</a>
-
-			<nav class="d-flex justify-content-evenly align-items-center">
-				<a href="./robos.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Robôs</a>
-				<a href="./sensores.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Sensores</a>
-				<a href="./arduino.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Arduino</a>
-			</nav>
+		<header class="navbar navbar-expand-md fixed-top bg-blur px-3 px-md-4 py-2 justify-content-between">
+			<a href="./index.html" class="navbar-brand me-0 px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill"> <i class="fa-solid fa-industry hvj-text"></i> Home </a>
+			<button class="navbar-toggler border-0 shadow-none hvj-text p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menu">
+				<i class="fa-solid fa-bars fs-4 hvj-text"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navPrincipal">
+				<nav class="navbar-nav align-items-md-center gap-md-2 mt-2 mt-md-0 ms-md-auto">
+					<a href="./robos.html" class="nav-link hvj-text px-2">Robôs</a>
+					<a href="./sensores.html" class="nav-link hvj-text px-2">Sensores</a>
+					<a href="./arduino.html" class="nav-link hvj-text px-2">Arduino</a>
+				</nav>
+			</div>
 		</header>
 
 		<main>
-			<section class="container d-flex vh-50 align-items-center">
-				<div class="row align-items-center">
-					<div class="col-12 col-md-7">
-						<span class="hvj-outline hvj-text rounded-pill px-3 py-1 d-inline-block mb-3">C4 &middot; Comunicação de Dados</span>
-						<h1 class="display-4 fw-bold hvj-text">Arduino</h1>
-						<p class="lead">Conceito, funcionamento e exemplos de programação com 12 sensores IoT e industriais.</p>
-					</div>
-					<div class="col-12 col-md-5">
-						<img src="./assets/img/geral/arduino-uno.jpg" alt="Placa Arduino Uno" class="img-fluid rounded-4" />
+			<section class="arduino-hero container-fluid bg-grey text-light d-flex align-items-center min-vh-100 position-relative overflow-hidden">
+				<model-viewer src="./assets/models/arduino-uno.glb" alt="Modelo 3D interativo de uma placa Arduino Uno" loading="eager" reveal="auto" camera-controls disable-zoom disable-pan touch-action="pan-y" auto-rotate rotation-per-second="16deg" interaction-prompt="none" disable-tap exposure="1.15" shadow-intensity="0" camera-orbit="35deg 68deg 105%" class="arduino-3d"></model-viewer>
+				<div class="container hero-content position-relative">
+					<div class="row">
+						<div class="col-12 col-md-6" data-aos="fade-right">
+							<span class="hvj-outline hvj-text rounded-pill px-3 py-1 d-inline-block mb-3">C4 &middot; Comunicação de Dados</span>
+							<h1 class="display-3 fw-bold hvj-text">Arduino</h1>
+							<p class="lead">Conceito, funcionamento e exemplos de programação com 12 sensores IoT e industriais.</p>
+							<p class="small text-secondary mb-0"><i class="fa-solid fa-arrows-up-down-left-right me-1"></i> Arraste para girar a placa em 3D.</p>
+						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- conceito -->
 			<section class="container my-4 py-3">
 				<h2>O que é o Arduino?</h2>
-				<p class="col-12 col-md-8">
-					O <span class="hvj-text">Arduino</span> é uma plataforma de prototipagem eletrônica de código aberto (hardware
-					e software), composta por uma placa com microcontrolador e um ambiente de desenvolvimento (IDE) próprio,
-					baseado na linguagem <span class="hvj-text">C/C++</span>. Criado em 2005 na Itália com foco educacional, hoje é
-					amplamente utilizado em projetos de automação, robótica e Internet das Coisas por sua simplicidade e baixo
-					custo.
-				</p>
-				<p class="col-12 col-md-8 mb-0">
-					A placa mais popular, o <strong>Arduino Uno</strong>, utiliza o microcontrolador ATmega328P e oferece 14 pinos
-					digitais (dos quais 6 podem gerar PWM), 6 entradas analógicas, memória flash de 32KB e comunicação serial
-					UART, além de suporte a protocolos I2C e SPI.
-				</p>
+				<p class="col-12 col-md-8">O <span class="hvj-text">Arduino</span> é uma plataforma de prototipagem eletrônica de código aberto (hardware e software), composta por uma placa com microcontrolador e um ambiente de desenvolvimento (IDE) próprio, baseado na linguagem <span class="hvj-text">C/C++</span>. Criado em 2005 na Itália com foco educacional, hoje é amplamente utilizado em projetos de automação, robótica e Internet das Coisas por sua simplicidade e baixo custo.</p>
+				<p class="col-12 col-md-8 mb-0">A placa mais popular, o <strong>Arduino Uno</strong>, utiliza o microcontrolador ATmega328P e oferece 14 pinos digitais (dos quais 6 podem gerar PWM), 6 entradas analógicas, memória flash de 32KB e comunicação serial UART, além de suporte a protocolos I2C e SPI.</p>
 			</section>
 
-			<!-- características e funcionamento -->
 			<section class="container-fluid bg-grey py-5">
 				<div class="container">
 					<h2>Características e Funcionamento</h2>
@@ -114,39 +104,26 @@
 					<div class="row g-4 mt-4">
 						<div class="col-12 col-md-6">
 							<h3 class="fs-5"><span class="hvj-text fw-bold">Prós</span></h3>
-							<p class="mb-0">
-								Fácil de aprender, acessível e ideal para iniciantes em eletrônica e programação. Comunidade ativa
-								oferece bibliotecas prontas para praticamente qualquer sensor, acelerando o desenvolvimento de
-								projetos.
-							</p>
+							<p class="mb-0">Fácil de aprender, acessível e ideal para iniciantes em eletrônica e programação. Comunidade ativa oferece bibliotecas prontas para praticamente qualquer sensor, acelerando o desenvolvimento de projetos.</p>
 						</div>
 						<div class="col-12 col-md-6">
 							<h3 class="fs-5">Contras</h3>
-							<p class="mb-0">
-								Capacidade de processamento e memória limitadas frente a controladores industriais (CLPs) ou
-								placas como ESP32/Raspberry Pi, o que pode restringir o uso em aplicações de maior desempenho ou
-								com muitos sensores simultâneos.
-							</p>
+							<p class="mb-0">Capacidade de processamento e memória limitadas frente a controladores industriais (CLPs) ou placas como ESP32/Raspberry Pi, o que pode restringir o uso em aplicações de maior desempenho ou com muitos sensores simultâneos.</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- exemplos de programação -->
 			<section class="container my-5 py-4">
 				<h2>Exemplos de Programação</h2>
-				<p class="col-12 col-md-8">
-					Abaixo estão 12 exemplos de leitura/uso de sensores com Arduino, cobrindo sinais analógicos, digitais e
-					comunicação via protocolos I2C/SPI/pulsos.
-				</p>
+				<p class="col-12 col-md-8">Abaixo estão 12 exemplos de leitura/uso de sensores com Arduino, cobrindo sinais analógicos, digitais e comunicação via protocolos I2C/SPI/pulsos.</p>
 
 				<div class="row g-3 mt-2">
-					<!-- 1. DHT22 -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">1. DHT22 &mdash; Temperatura e Umidade</summary>
 							<div class="mt-2">
-								<pre><code>// leitura de temperatura e umidade com o DHT22
+								<pre><code class="language-arduino">// leitura de temperatura e umidade com o DHT22
 #include &lt;DHT.h&gt;
 
 #define DHTPIN 2
@@ -175,12 +152,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 2. LM35 -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">2. LM35 &mdash; Temperatura Analógica</summary>
 							<div class="mt-2">
-								<pre><code>// leitura de temperatura com o LM35 (saida analogica)
+								<pre><code class="language-arduino">// leitura de temperatura com o LM35 (saida analogica)
 const int pinoLM35 = A0;
 
 void setup() {
@@ -202,12 +178,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 3. HC-SR04 -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">3. HC-SR04 &mdash; Distância Ultrassônica</summary>
 							<div class="mt-2">
-								<pre><code>// medicao de distancia com sensor ultrassonico HC-SR04
+								<pre><code class="language-arduino">// medicao de distancia com sensor ultrassonico HC-SR04
 const int trigPin = 9;
 const int echoPin = 10;
 
@@ -237,12 +212,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 4. PIR -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">4. PIR HC-SR501 &mdash; Detecção de Movimento</summary>
 							<div class="mt-2">
-								<pre><code>// deteccao de presenca com sensor PIR
+								<pre><code class="language-arduino">// deteccao de presenca com sensor PIR
 const int pinoPIR = 3;
 const int pinoLed = 13;
 
@@ -268,12 +242,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 5. LDR -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">5. LDR &mdash; Luminosidade</summary>
 							<div class="mt-2">
-								<pre><code>// leitura de luminosidade com LDR em divisor de tensao
+								<pre><code class="language-arduino">// leitura de luminosidade com LDR em divisor de tensao
 const int pinoLDR = A1;
 const int limiarEscuro = 300;
 
@@ -298,12 +271,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 6. Indutivo -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">6. Sensor Indutivo LJ12A3 &mdash; Proximidade Metálica</summary>
 							<div class="mt-2">
-								<pre><code>// contagem de pecas metalicas com sensor indutivo (saida NPN)
+								<pre><code class="language-arduino">// contagem de pecas metalicas com sensor indutivo (saida NPN)
 const int pinoSensor = 4;
 int contador = 0;
 int estadoAnterior = HIGH;
@@ -329,12 +301,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 7. MQ-2 -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">7. MQ-2 &mdash; Gás e Fumaça</summary>
 							<div class="mt-2">
-								<pre><code>// deteccao de gas/fumaca com o MQ-2
+								<pre><code class="language-arduino">// deteccao de gas/fumaca com o MQ-2
 const int pinoMQ2 = A2;
 const int limiarAlarme = 400;
 
@@ -360,12 +331,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 8. Higrômetro solo -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">8. Umidade do Solo &mdash; Irrigação Automática</summary>
 							<div class="mt-2">
-								<pre><code>// leitura de umidade do solo e acionamento de irrigacao
+								<pre><code class="language-arduino">// leitura de umidade do solo e acionamento de irrigacao
 const int pinoSolo = A3;
 const int pinoValvula = 7;
 const int limiarSeco = 600; // ajustar conforme calibracao
@@ -391,12 +361,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 9. Fluxo -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">9. YF-S201 &mdash; Vazão de Água</summary>
 							<div class="mt-2">
-								<pre><code>// medicao de vazao de agua com sensor de efeito Hall
+								<pre><code class="language-arduino">// medicao de vazao de agua com sensor de efeito Hall
 const int pinoFluxo = 2;
 volatile int pulsos = 0;
 const float pulsosPorLitro = 4.5;
@@ -424,12 +393,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 10. ACS712 -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">10. ACS712 &mdash; Corrente Elétrica</summary>
 							<div class="mt-2">
-								<pre><code>// medicao de corrente eletrica com o ACS712 (modulo 20A)
+								<pre><code class="language-arduino">// medicao de corrente eletrica com o ACS712 (modulo 20A)
 const int pinoACS712 = A4;
 const float sensibilidade = 0.100; // 100 mV/A para o modulo de 20A
 const float tensaoRepouso = 2.5;   // tensao de saida sem corrente
@@ -453,12 +421,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 11. Nível -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">11. Sensor de Nível (Boia) &mdash; Controle de Reservatório</summary>
 							<div class="mt-2">
-								<pre><code>// controle de bomba com sensor de nivel tipo boia
+								<pre><code class="language-arduino">// controle de bomba com sensor de nivel tipo boia
 const int pinoBoia = 5;
 const int pinoBomba = 6;
 
@@ -485,12 +452,11 @@ void loop() {
 						</details>
 					</div>
 
-					<!-- 12. RFID -->
 					<div class="col-12 col-md-6">
 						<details class="w-100 p-3 mb-2 hvj-outline rounded-4">
 							<summary class="hvj-text fw-bold cursor-pointer">12. MFRC522 &mdash; Leitura de Cartão RFID</summary>
 							<div class="mt-2">
-								<pre><code>// leitura de UID de cartao RFID com o modulo MFRC522
+								<pre><code class="language-arduino">// leitura de UID de cartao RFID com o modulo MFRC522
 #include &lt;SPI.h&gt;
 #include &lt;MFRC522.h&gt;
 
@@ -528,9 +494,7 @@ void loop() {
 
 		<footer class="bg-blur p-2 p-md-3">
 			<div class="d-flex align-items-center justify-content-evenly">
-				<a href="./index.html" class="hvj-text text-decoration-none d-none d-md-block">
-					<i class="fa-solid fa-industry"></i> IoT & Robótica Industrial
-				</a>
+				<a href="./index.html" class="hvj-text text-decoration-none d-none d-md-block"> <i class="fa-solid fa-industry"></i> IoT & Robótica Industrial </a>
 				<p class="m-0 hvj-text">Arduino &amp; Exemplos de Programação</p>
 			</div>
 		</footer>

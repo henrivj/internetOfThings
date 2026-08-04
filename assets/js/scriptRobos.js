@@ -1,22 +1,25 @@
-// destaca o botão de filtro correspondente à seção de robô visível na tela
-const botoesFiltro = document.querySelectorAll('.filter-btn');
-const secoesRobo = document.querySelectorAll('main section[id]');
+document.addEventListener('DOMContentLoaded', () => {
+	if (typeof initCatalog === 'function') {
+		initCatalog({
+			filters: '#filtros-robos',
+			carousel: '#carrossel-robos',
+			indicators: '#indicadores-robos',
+			pool: '#pool-robos',
+			chunk: 1,
+			rowClass: 'row g-4'
+		});
 
-function marcarBotaoAtivo() {
-	let idAtual = '';
+		const irParaHash = () => {
+			const alvo = decodeURIComponent(location.hash.replace('#', ''));
+			if (!alvo) return;
+			const btn = document.querySelector(`#filtros-robos .filter-btn[data-filter="${alvo}"]`);
+			if (btn) btn.click();
+		};
+		irParaHash();
+		window.addEventListener('hashchange', irParaHash);
+	}
 
-	secoesRobo.forEach((secao) => {
-		const topo = secao.getBoundingClientRect().top;
-		if (topo < 140) {
-			idAtual = secao.id;
-		}
-	});
-
-	botoesFiltro.forEach((botao) => {
-		const alvo = botao.getAttribute('href')?.replace('#', '');
-		botao.classList.toggle('active', alvo === idAtual);
-	});
-}
-
-window.addEventListener('scroll', marcarBotaoAtivo);
-document.addEventListener('DOMContentLoaded', marcarBotaoAtivo);
+	if (typeof AOS !== 'undefined') {
+		AOS.init({ duration: 700, once: true, offset: 80 });
+	}
+});

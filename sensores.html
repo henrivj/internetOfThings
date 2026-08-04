@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
@@ -6,25 +6,19 @@
 		<meta name="description" content="Catálogo técnico de sensores IoT e industriais: conceito, funcionamento, especificações, sinal e integração com Arduino, ESP32 e Raspberry Pi." />
 
 		<link rel="stylesheet" href="./assets/css/style.css" />
+		<script src="./assets/js/scriptCatalogo.js" defer></script>
 		<script src="./assets/js/scriptSensores.js" defer></script>
 
-		<!-- bootstrap -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"
-		></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-		<!-- font awesome -->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
-		<!-- google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
@@ -33,190 +27,230 @@
 	</head>
 
 	<body>
-		<header class="fixed-top bg-blur p-2 px-md-4 d-flex justify-content-evenly align-items-center">
-			<a href="./index.html" class="px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill">
-				<i class="fa-solid fa-industry hvj-text"></i> Home
-			</a>
-
-			<nav class="d-flex justify-content-evenly align-items-center">
-				<a href="./robos.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Robôs</a>
-				<a href="./sensores.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Sensores</a>
-				<a href="./arduino.html" class="d-none d-md-flex hvj-text text-decoration-none mx-2 mx-md-3">Arduino</a>
-			</nav>
+		<header class="navbar navbar-expand-md fixed-top bg-blur px-3 px-md-4 py-2 justify-content-between">
+			<a href="./index.html" class="navbar-brand me-0 px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill"> <i class="fa-solid fa-industry hvj-text"></i> Home </a>
+			<button class="navbar-toggler border-0 shadow-none hvj-text p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menu">
+				<i class="fa-solid fa-bars fs-4 hvj-text"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navPrincipal">
+				<nav class="navbar-nav align-items-md-center gap-md-2 mt-2 mt-md-0 ms-md-auto">
+					<a href="./robos.html" class="nav-link hvj-text px-2">Robôs</a>
+					<a href="./sensores.html" class="nav-link hvj-text px-2">Sensores</a>
+					<a href="./arduino.html" class="nav-link hvj-text px-2">Arduino</a>
+				</nav>
+			</div>
 		</header>
 
 		<main>
-			<section class="container d-flex vh-50 align-items-center">
-				<div>
+			<section class="container-fluid bg-grey text-light d-flex align-items-center min-vh-100">
+				<div class="container" data-aos="fade-up">
 					<span class="hvj-outline hvj-text rounded-pill px-3 py-1 d-inline-block mb-3">C1, C2, C4 &middot; Sensoriamento e IoT</span>
-					<h1 class="display-4 fw-bold hvj-text">Catálogo de Sensores IoT</h1>
-					<p class="lead">
-						12 sensores usados em projetos com Arduino, ESP32, Raspberry Pi e CLPs — conceito, funcionamento,
-						especificações, tipo de sinal e aplicações industriais.
-					</p>
+					<h1 class="display-3 fw-bold hvj-text">Catálogo de Sensores IoT</h1>
+					<p class="lead col-lg-9">12 sensores usados em projetos com Arduino, ESP32, Raspberry Pi e CLPs — conceito, funcionamento, especificações, tipo de sinal e aplicações industriais.</p>
 				</div>
 			</section>
 
-			<!-- filtro por categoria -->
-			<section class="container mb-4">
+			<section class="container catalog-filters-section mt-5 pt-md-4 mb-4" id="filtros-categoria">
 				<p class="hvj-text small text-uppercase fw-bold mb-2">Filtrar por categoria</p>
-				<div class="d-flex flex-wrap gap-2" id="filtros-categoria">
-					<button class="filter-btn active" data-categoria="todos">Todos</button>
-					<button class="filter-btn" data-categoria="Temperatura">Temperatura</button>
-					<button class="filter-btn" data-categoria="Distância">Distância</button>
-					<button class="filter-btn" data-categoria="Movimento">Movimento</button>
-					<button class="filter-btn" data-categoria="Luminosidade">Luminosidade</button>
-					<button class="filter-btn" data-categoria="Proximidade">Proximidade</button>
-					<button class="filter-btn" data-categoria="Gás">Gás</button>
-					<button class="filter-btn" data-categoria="Umidade">Umidade</button>
-					<button class="filter-btn" data-categoria="Fluxo">Fluxo</button>
-					<button class="filter-btn" data-categoria="Corrente">Corrente</button>
-					<button class="filter-btn" data-categoria="Nível">Nível</button>
-					<button class="filter-btn" data-categoria="RFID">RFID</button>
+
+				<div class="d-none d-md-flex flex-wrap gap-2 justify-content-between catalog-filters">
+					<button class="filter-btn active" data-filter="todos">Todos</button>
+					<button class="filter-btn" data-filter="Temperatura">Temperatura</button>
+					<button class="filter-btn" data-filter="Distância">Distância</button>
+					<button class="filter-btn" data-filter="Movimento">Movimento</button>
+					<button class="filter-btn" data-filter="Luminosidade">Luminosidade</button>
+					<button class="filter-btn" data-filter="Proximidade">Proximidade</button>
+					<button class="filter-btn" data-filter="Gás">Gás</button>
+					<button class="filter-btn" data-filter="Umidade">Umidade</button>
+					<button class="filter-btn" data-filter="Fluxo">Fluxo</button>
+					<button class="filter-btn" data-filter="Corrente">Corrente</button>
+					<button class="filter-btn" data-filter="Nível">Nível</button>
+					<button class="filter-btn" data-filter="RFID">RFID</button>
+				</div>
+
+				<div class="dropdown d-md-none catalog-filters-dropdown">
+					<button class="filter-btn filter-dropdown-toggle dropdown-toggle w-100 text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false">Todos</button>
+					<ul class="dropdown-menu bg-blur w-100">
+						<li><button type="button" class="dropdown-item hvj-text active" data-filter="todos">Todos</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Temperatura">Temperatura</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Distância">Distância</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Movimento">Movimento</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Luminosidade">Luminosidade</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Proximidade">Proximidade</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Gás">Gás</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Umidade">Umidade</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Fluxo">Fluxo</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Corrente">Corrente</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="Nível">Nível</button></li>
+						<li><button type="button" class="dropdown-item hvj-text" data-filter="RFID">RFID</button></li>
+					</ul>
 				</div>
 			</section>
 
-			<!-- catálogo em grid de cards -->
-			<section class="container mb-3">
-				<div class="row g-3" id="grid-sensores">
-					<!-- DHT22 -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Temperatura">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-dht22">
+			<section class="container mb-5">
+				<div id="carrossel-sensores" class="carousel slide" data-bs-touch="true">
+					<div class="carousel-inner"></div>
+				</div>
+				<div class="catalog-indicators d-flex flex-wrap justify-content-center gap-2 mt-4" id="indicadores-sensores"></div>
+				<p id="sem-resultado" class="text-center text-secondary my-5 d-none">Nenhum sensor encontrado para esta categoria.</p>
+
+				<div class="d-none" id="pool-sensores">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Temperatura">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/dht22.jpg" alt="Módulo sensor DHT22" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Temperatura e Umidade</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Temperatura e Umidade</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-dht22" aria-label="Mais informações sobre o DHT22"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">DHT22 (AM2302)</h3>
 							<p class="small mb-0">Sensor digital combinado de temperatura e umidade relativa do ar.</p>
 						</div>
 					</div>
 
-					<!-- LM35 -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Temperatura">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-lm35">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Temperatura">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/lm35.jpg" alt="Sensor de temperatura LM35" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Temperatura</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Temperatura</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-lm35" aria-label="Mais informações sobre o LM35"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">LM35</h3>
 							<p class="small mb-0">Circuito integrado com saída analógica linear proporcional à temperatura.</p>
 						</div>
 					</div>
 
-					<!-- HC-SR04 -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Distância">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-hcsr04">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Distância">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/hcsr04.jpg" alt="Módulo ultrassônico HC-SR04" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Distância</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Distância</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-hcsr04" aria-label="Mais informações sobre o HC-SR04"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">HC-SR04</h3>
 							<p class="small mb-0">Sensor ultrassônico de distância por tempo de voo do eco.</p>
 						</div>
 					</div>
 
-					<!-- PIR -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Movimento">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-pir">
-							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/pir.png" alt="Módulo sensor PIR de movimento" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Movimento</span>
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Movimento">
+						<div class="card-item rounded-4 h-100 p-3">
+							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/pir.jpg" alt="Módulo sensor PIR HC-SR501 com lente Fresnel e ajustes de sensibilidade" /></div>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Movimento</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-pir" aria-label="Mais informações sobre o PIR HC-SR501"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">PIR HC-SR501</h3>
 							<p class="small mb-0">Sensor passivo infravermelho de detecção de presença e movimento.</p>
 						</div>
 					</div>
 
-					<!-- LDR -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Luminosidade">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-ldr">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Luminosidade">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/ldr.jpg" alt="Fotorresistor LDR" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Luminosidade</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Luminosidade</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-ldr" aria-label="Mais informações sobre o LDR"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">LDR</h3>
 							<p class="small mb-0">Fotorresistor cuja resistência varia com a intensidade de luz.</p>
 						</div>
 					</div>
 
-					<!-- Indutivo -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Proximidade">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-indutivo">
-							<div class="card-img-frame rounded-3 mb-3 bg-grey-light">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Proximidade">
+						<div class="card-item rounded-4 h-100 p-3">
+							<div class="card-img-frame img-plate rounded-3 mb-3">
 								<img src="./assets/img/sensores/indutivo.svg" alt="Esquema de funcionamento de um sensor indutivo" />
 							</div>
-							<span class="badge-categoria mb-2 d-inline-block">Proximidade</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Proximidade</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-indutivo" aria-label="Mais informações sobre o Sensor Indutivo LJ12A3"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">Sensor Indutivo LJ12A3</h3>
 							<p class="small mb-0">Detecta objetos metálicos por indução eletromagnética, sem contato.</p>
 						</div>
 					</div>
 
-					<!-- MQ-2 -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Gás">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-mq2">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Gás">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/mq2.jpg" alt="Sensor de gás MQ-2" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Gás</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Gás</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-mq2" aria-label="Mais informações sobre o MQ-2"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">MQ-2</h3>
 							<p class="small mb-0">Detecta fumaça e gases combustíveis como GLP, propano e metano.</p>
 						</div>
 					</div>
 
-					<!-- Higrômetro solo -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Umidade">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-higrometro">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Umidade">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/higrometro.jpg" alt="Sensor capacitivo de umidade do solo" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Umidade</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Umidade</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-higrometro" aria-label="Mais informações sobre o Sensor Capacitivo de Umidade do Solo"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">Sensor Capacitivo de Umidade do Solo</h3>
 							<p class="small mb-0">Mede a umidade do solo por variação de capacitância.</p>
 						</div>
 					</div>
 
-					<!-- Fluxo -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Fluxo">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-fluxo">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Fluxo">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/fluxo.jpg" alt="Sensor de fluxo de água YF-S201" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Fluxo</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Fluxo</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-fluxo" aria-label="Mais informações sobre o YF-S201"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">YF-S201</h3>
 							<p class="small mb-0">Mede a vazão de água por efeito Hall em uma turbina interna.</p>
 						</div>
 					</div>
 
-					<!-- ACS712 -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Corrente">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-acs712">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Corrente">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/acs712.jpg" alt="Sensor de corrente ACS712" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Corrente</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Corrente</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-acs712" aria-label="Mais informações sobre o ACS712"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">ACS712</h3>
 							<p class="small mb-0">Mede corrente elétrica AC/DC por efeito Hall, sem contato direto.</p>
 						</div>
 					</div>
 
-					<!-- Nível -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="Nível">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-nivel">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="Nível">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/nivel.jpg" alt="Sensor de nível tipo boia" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">Nível</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">Nível</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-nivel" aria-label="Mais informações sobre o Sensor de Nível (Boia)"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">Sensor de Nível (Boia)</h3>
 							<p class="small mb-0">Detecta o nível de líquidos por meio de um interruptor magnético flutuante.</p>
 						</div>
 					</div>
 
-					<!-- RFID -->
-					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-categoria="RFID">
-						<div class="card-item rounded-4 h-100 p-3 cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-rfid">
+					<div class="col-12 col-md-6 col-lg-4 sensor-card" data-filter-value="RFID">
+						<div class="card-item rounded-4 h-100 p-3">
 							<div class="card-img-frame rounded-3 mb-3"><img src="./assets/img/sensores/rfid.jpg" alt="Módulo leitor RFID MFRC522" /></div>
-							<span class="badge-categoria mb-2 d-inline-block">RFID</span>
+							<div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+								<span class="badge-categoria">RFID</span>
+								<button class="sensor-info-btn" data-bs-toggle="modal" data-bs-target="#modal-rfid" aria-label="Mais informações sobre o MFRC522"><i class="bi bi-info-circle"></i></button>
+							</div>
 							<h3 class="fs-5 hvj-text">MFRC522</h3>
 							<p class="small mb-0">Módulo leitor/gravador RFID de 13.56 MHz para identificação e controle de acesso.</p>
 						</div>
 					</div>
 				</div>
-				<p id="sem-resultado" class="text-center text-secondary my-5 d-none">Nenhum sensor encontrado para esta categoria.</p>
 			</section>
 		</main>
 
 		<footer class="bg-blur p-2 p-md-3">
 			<div class="d-flex align-items-center justify-content-evenly">
-				<a href="./index.html" class="hvj-text text-decoration-none d-none d-md-block">
-					<i class="fa-solid fa-industry"></i> IoT & Robótica Industrial
-				</a>
+				<a href="./index.html" class="hvj-text text-decoration-none d-none d-md-block"> <i class="fa-solid fa-industry"></i> IoT & Robótica Industrial </a>
 				<p class="m-0 hvj-text">Catálogo de Sensores IoT</p>
 			</div>
 		</footer>
 
-		<!-- ================= MODAIS DE DETALHE ================= -->
-
-		<!-- DHT22 -->
 		<div class="modal fade" id="modal-dht22" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -235,11 +269,26 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>3,3 a 6V</td></tr>
-							<tr><th>Faixa de temperatura</th><td>-40°C a 80°C (±0,5°C)</td></tr>
-							<tr><th>Faixa de umidade</th><td>0 a 100% RH (±2 a 5%)</td></tr>
-							<tr><th>Taxa de amostragem</th><td>~0,5 Hz (1 leitura a cada 2s)</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (1 fio)</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>3,3 a 6V</td>
+							</tr>
+							<tr>
+								<th>Faixa de temperatura</th>
+								<td>-40°C a 80°C (±0,5°C)</td>
+							</tr>
+							<tr>
+								<th>Faixa de umidade</th>
+								<td>0 a 100% RH (±2 a 5%)</td>
+							</tr>
+							<tr>
+								<th>Taxa de amostragem</th>
+								<td>~0,5 Hz (1 leitura a cada 2s)</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Digital (1 fio)</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> monitoramento climático em estufas e data centers, controle de HVAC industrial, estações meteorológicas IoT.</p>
 						<p><strong>Exemplo de utilização:</strong> leitura periódica da temperatura e umidade de uma câmara fria, publicando os dados via MQTT para um painel de monitoramento em nuvem.</p>
@@ -249,7 +298,6 @@
 			</div>
 		</div>
 
-		<!-- LM35 -->
 		<div class="modal fade" id="modal-lm35" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -268,11 +316,26 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de alimentação</th><td>4 a 30V</td></tr>
-							<tr><th>Faixa de medição</th><td>-55°C a 150°C</td></tr>
-							<tr><th>Precisão</th><td>±0,5°C a 25°C</td></tr>
-							<tr><th>Saída</th><td>Linear, 10 mV/°C</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+							<tr>
+								<th>Tensão de alimentação</th>
+								<td>4 a 30V</td>
+							</tr>
+							<tr>
+								<th>Faixa de medição</th>
+								<td>-55°C a 150°C</td>
+							</tr>
+							<tr>
+								<th>Precisão</th>
+								<td>±0,5°C a 25°C</td>
+							</tr>
+							<tr>
+								<th>Saída</th>
+								<td>Linear, 10 mV/°C</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Analógico</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> controle de temperatura de motores e painéis elétricos, monitoramento térmico de fornos industriais, proteção térmica de equipamentos.</p>
 						<p><strong>Exemplo de utilização:</strong> ligado a uma entrada analógica do Arduino, converte a leitura em °C multiplicando o valor por (5,0/1023,0)×100.</p>
@@ -282,7 +345,6 @@
 			</div>
 		</div>
 
-		<!-- HC-SR04 -->
 		<div class="modal fade" id="modal-hcsr04" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -301,11 +363,26 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>5V</td></tr>
-							<tr><th>Alcance</th><td>2 cm a 400 cm</td></tr>
-							<tr><th>Precisão</th><td>±3 mm</td></tr>
-							<tr><th>Ângulo de medição</th><td>~15°</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (Trigger/Echo)</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>5V</td>
+							</tr>
+							<tr>
+								<th>Alcance</th>
+								<td>2 cm a 400 cm</td>
+							</tr>
+							<tr>
+								<th>Precisão</th>
+								<td>±3 mm</td>
+							</tr>
+							<tr>
+								<th>Ângulo de medição</th>
+								<td>~15°</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Digital (Trigger/Echo)</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> detecção de obstáculos em AGVs (veículos autoguiados), controle de nível em silos, contagem de peças em esteiras.</p>
 						<p><strong>Exemplo de utilização:</strong> aciona o pino Trigger por 10µs e mede a duração do pulso no pino Echo com <code>pulseIn()</code> para calcular a distância.</p>
@@ -315,7 +392,6 @@
 			</div>
 		</div>
 
-		<!-- PIR -->
 		<div class="modal fade" id="modal-pir" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -326,7 +402,7 @@
 					<div class="modal-body">
 						<div class="row g-3 mb-3">
 							<div class="col-12 col-md-4">
-								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/pir.png" alt="Módulo sensor PIR de movimento" /></div>
+								<div class="card-img-frame rounded-3"><img src="./assets/img/sensores/pir.jpg" alt="Módulo sensor PIR HC-SR501 com lente Fresnel e ajustes de sensibilidade" /></div>
 							</div>
 							<div class="col-12 col-md-8">
 								<p><strong>Conceito:</strong> sensor passivo infravermelho que detecta variações no calor emitido por corpos em movimento dentro de seu campo de visão.</p>
@@ -334,11 +410,26 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>5 a 20V</td></tr>
-							<tr><th>Alcance de detecção</th><td>3 a 7 m (ajustável)</td></tr>
-							<tr><th>Ângulo de detecção</th><td>~120°</td></tr>
-							<tr><th>Tempo de retenção</th><td>5s a 300s (ajustável)</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (HIGH/LOW)</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>5 a 20V</td>
+							</tr>
+							<tr>
+								<th>Alcance de detecção</th>
+								<td>3 a 7 m (ajustável)</td>
+							</tr>
+							<tr>
+								<th>Ângulo de detecção</th>
+								<td>~120°</td>
+							</tr>
+							<tr>
+								<th>Tempo de retenção</th>
+								<td>5s a 300s (ajustável)</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Digital (HIGH/LOW)</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> sistemas de segurança e alarme em plantas industriais, acionamento automático de iluminação, contagem de pessoas em áreas restritas.</p>
 						<p><strong>Exemplo de utilização:</strong> saída conectada a uma entrada digital do Arduino, aciona um LED ou buzzer quando detecta movimento.</p>
@@ -348,7 +439,6 @@
 			</div>
 		</div>
 
-		<!-- LDR -->
 		<div class="modal fade" id="modal-ldr" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -367,10 +457,22 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Resistência no escuro</th><td>&gt; 1 MΩ</td></tr>
-							<tr><th>Resistência sob luz</th><td>~1 a 10 kΩ</td></tr>
-							<tr><th>Tempo de resposta</th><td>Dezenas de milissegundos</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+							<tr>
+								<th>Resistência no escuro</th>
+								<td>&gt; 1 MΩ</td>
+							</tr>
+							<tr>
+								<th>Resistência sob luz</th>
+								<td>~1 a 10 kΩ</td>
+							</tr>
+							<tr>
+								<th>Tempo de resposta</th>
+								<td>Dezenas de milissegundos</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Analógico</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> controle automático de iluminação pública e industrial, sistemas de rastreamento solar, detecção de presença de luz em processos.</p>
 						<p><strong>Exemplo de utilização:</strong> montado em um divisor de tensão com um resistor fixo, a leitura analógica do Arduino determina se as luzes devem acender.</p>
@@ -380,7 +482,6 @@
 			</div>
 		</div>
 
-		<!-- Indutivo -->
 		<div class="modal fade" id="modal-indutivo" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -391,7 +492,7 @@
 					<div class="modal-body">
 						<div class="row g-3 mb-3">
 							<div class="col-12 col-md-4">
-								<div class="card-img-frame rounded-3 bg-grey-light">
+								<div class="card-img-frame img-plate rounded-3">
 									<img src="./assets/img/sensores/indutivo.svg" alt="Esquema de funcionamento de um sensor indutivo" />
 								</div>
 							</div>
@@ -401,11 +502,26 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>6 a 36V DC</td></tr>
-							<tr><th>Distância de detecção</th><td>Até 4 mm</td></tr>
-							<tr><th>Corpo</th><td>Cilíndrico rosqueado M12</td></tr>
-							<tr><th>Saída</th><td>NPN ou PNP, NO ou NC</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (NPN/PNP)</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>6 a 36V DC</td>
+							</tr>
+							<tr>
+								<th>Distância de detecção</th>
+								<td>Até 4 mm</td>
+							</tr>
+							<tr>
+								<th>Corpo</th>
+								<td>Cilíndrico rosqueado M12</td>
+							</tr>
+							<tr>
+								<th>Saída</th>
+								<td>NPN ou PNP, NO ou NC</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Digital (NPN/PNP)</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> detecção de peças metálicas em linhas de montagem, contagem de objetos em esteiras, fins de curso sem contato em máquinas.</p>
 						<p><strong>Exemplo de utilização:</strong> conectado a uma entrada digital de um CLP ou Arduino (com adaptação de nível), aciona um contador a cada peça metálica detectada.</p>
@@ -415,7 +531,6 @@
 			</div>
 		</div>
 
-		<!-- MQ-2 -->
 		<div class="modal fade" id="modal-mq2" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -434,10 +549,22 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>5V</td></tr>
-							<tr><th>Faixa de detecção</th><td>300 a 10.000 ppm</td></tr>
-							<tr><th>Pré-aquecimento</th><td>Necessário (alguns minutos)</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico e Digital</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>5V</td>
+							</tr>
+							<tr>
+								<th>Faixa de detecção</th>
+								<td>300 a 10.000 ppm</td>
+							</tr>
+							<tr>
+								<th>Pré-aquecimento</th>
+								<td>Necessário (alguns minutos)</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Analógico e Digital</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> detecção de vazamentos de gás em ambientes industriais, sistemas de alarme contra incêndio, monitoramento de qualidade do ar em galpões.</p>
 						<p><strong>Exemplo de utilização:</strong> a leitura analógica é comparada a um limiar (threshold); quando ultrapassado, aciona um alarme e envia notificação via IoT.</p>
@@ -447,7 +574,6 @@
 			</div>
 		</div>
 
-		<!-- Higrômetro solo -->
 		<div class="modal fade" id="modal-higrometro" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -466,10 +592,22 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>3,3 a 5,5V</td></tr>
-							<tr><th>Saída</th><td>0 a ~3V (invertida: menor tensão = mais úmido)</td></tr>
-							<tr><th>Corpo</th><td>Revestido, resistente à corrosão</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>3,3 a 5,5V</td>
+							</tr>
+							<tr>
+								<th>Saída</th>
+								<td>0 a ~3V (invertida: menor tensão = mais úmido)</td>
+							</tr>
+							<tr>
+								<th>Corpo</th>
+								<td>Revestido, resistente à corrosão</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Analógico</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> agricultura de precisão e irrigação automatizada, monitoramento de umidade em estufas industriais, controle de processos que dependem de umidade do substrato.</p>
 						<p><strong>Exemplo de utilização:</strong> a leitura analógica aciona uma eletroválvula de irrigação quando o solo atinge um nível de secura predefinido.</p>
@@ -479,7 +617,6 @@
 			</div>
 		</div>
 
-		<!-- Fluxo -->
 		<div class="modal fade" id="modal-fluxo" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -498,11 +635,26 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>5 a 24V</td></tr>
-							<tr><th>Faixa de vazão</th><td>1 a 30 L/min</td></tr>
-							<tr><th>Pressão máxima</th><td>1,75 MPa</td></tr>
-							<tr><th>Saída</th><td>Pulsos (~4,5 pulsos por litro)</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (pulsos)</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>5 a 24V</td>
+							</tr>
+							<tr>
+								<th>Faixa de vazão</th>
+								<td>1 a 30 L/min</td>
+							</tr>
+							<tr>
+								<th>Pressão máxima</th>
+								<td>1,75 MPa</td>
+							</tr>
+							<tr>
+								<th>Saída</th>
+								<td>Pulsos (~4,5 pulsos por litro)</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Digital (pulsos)</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> monitoramento de consumo de água em processos industriais, controle de dosagem de líquidos, sistemas de irrigação e CIP (Clean-in-Place).</p>
 						<p><strong>Exemplo de utilização:</strong> a contagem de pulsos em uma interrupção do Arduino é usada para calcular o volume total de água consumido em tempo real.</p>
@@ -512,7 +664,6 @@
 			</div>
 		</div>
 
-		<!-- ACS712 -->
 		<div class="modal fade" id="modal-acs712" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -531,11 +682,26 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de alimentação</th><td>5V</td></tr>
-							<tr><th>Faixas comerciais</th><td>±5A, ±20A ou ±30A</td></tr>
-							<tr><th>Sensibilidade</th><td>66 a 185 mV/A (conforme modelo)</td></tr>
-							<tr><th>Isolamento elétrico</th><td>2,1 kVRMS</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Analógico</span></td></tr>
+							<tr>
+								<th>Tensão de alimentação</th>
+								<td>5V</td>
+							</tr>
+							<tr>
+								<th>Faixas comerciais</th>
+								<td>±5A, ±20A ou ±30A</td>
+							</tr>
+							<tr>
+								<th>Sensibilidade</th>
+								<td>66 a 185 mV/A (conforme modelo)</td>
+							</tr>
+							<tr>
+								<th>Isolamento elétrico</th>
+								<td>2,1 kVRMS</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Analógico</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> monitoramento de consumo energético de motores industriais, proteção contra sobrecorrente, medição de eficiência energética em painéis elétricos.</p>
 						<p><strong>Exemplo de utilização:</strong> a leitura analógica é convertida em corrente (A) através da fórmula de sensibilidade, permitindo estimar o consumo de um motor em tempo real.</p>
@@ -545,7 +711,6 @@
 			</div>
 		</div>
 
-		<!-- Nível -->
 		<div class="modal fade" id="modal-nivel" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -564,10 +729,22 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>5 a 24V DC (ou até 220V AC, conforme modelo)</td></tr>
-							<tr><th>Proteção</th><td>IP68 (submersível)</td></tr>
-							<tr><th>Material</th><td>Polipropileno resistente à corrosão</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (contato seco NA/NF)</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>5 a 24V DC (ou até 220V AC, conforme modelo)</td>
+							</tr>
+							<tr>
+								<th>Proteção</th>
+								<td>IP68 (submersível)</td>
+							</tr>
+							<tr>
+								<th>Material</th>
+								<td>Polipropileno resistente à corrosão</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Digital (contato seco NA/NF)</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> controle de nível em reservatórios e caixas d'água industriais, proteção contra transbordamento em tanques, acionamento automático de bombas.</p>
 						<p><strong>Exemplo de utilização:</strong> a boia aciona um relé que liga a bomba de reposição quando o nível do reservatório está baixo, e desliga ao atingir o nível máximo.</p>
@@ -577,7 +754,6 @@
 			</div>
 		</div>
 
-		<!-- RFID -->
 		<div class="modal fade" id="modal-rfid" tabindex="-1">
 			<div class="modal-dialog modal-lg modal-dialog-scrollable">
 				<div class="modal-content bg-grey text-light">
@@ -596,10 +772,22 @@
 							</div>
 						</div>
 						<table class="spec-table mb-3">
-							<tr><th>Tensão de operação</th><td>3,3V</td></tr>
-							<tr><th>Frequência</th><td>13,56 MHz</td></tr>
-							<tr><th>Distância de leitura</th><td>Até ~5 cm</td></tr>
-							<tr><th>Tipo de sinal</th><td><span class="badge-signal">Digital (SPI)</span></td></tr>
+							<tr>
+								<th>Tensão de operação</th>
+								<td>3,3V</td>
+							</tr>
+							<tr>
+								<th>Frequência</th>
+								<td>13,56 MHz</td>
+							</tr>
+							<tr>
+								<th>Distância de leitura</th>
+								<td>Até ~5 cm</td>
+							</tr>
+							<tr>
+								<th>Tipo de sinal</th>
+								<td><span class="badge-signal">Digital (SPI)</span></td>
+							</tr>
 						</table>
 						<p><strong>Aplicações industriais/IoT:</strong> controle de acesso a áreas restritas, identificação de ferramentas e insumos em linhas de produção, rastreabilidade de peças (tags RFID em pallets).</p>
 						<p><strong>Exemplo de utilização:</strong> ao aproximar um cartão RFID do módulo, o Arduino lê o UID (identificador único) e compara com uma lista de acessos autorizados.</p>
