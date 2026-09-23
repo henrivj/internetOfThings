@@ -1,4 +1,17 @@
+function adicionarLinkProjetos() {
+	const nav = document.querySelector('#navPrincipal .navbar-nav');
+	if (!nav || nav.querySelector('a[href="./projetos.html"]')) return;
+
+	const link = document.createElement('a');
+	link.href = './projetos.html';
+	link.className = 'nav-link hvj-text px-2';
+	link.textContent = 'Projetos';
+	nav.appendChild(link);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+	adicionarLinkProjetos();
+
 	if (typeof AOS !== 'undefined') {
 		document.querySelectorAll('main section:not(:first-of-type) .row > [class*="col-"]').forEach((col) => {
 			if (!col.hasAttribute('data-aos')) col.setAttribute('data-aos', 'fade-up');
@@ -10,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
 	const secaoExemplos = document.querySelectorAll('main details');
 	if (secaoExemplos.length === 0) return;
-
 	const botaoToggle = document.createElement('button');
 	botaoToggle.textContent = 'Expandir Todos os Exemplos';
 	botaoToggle.className = 'filter-btn mb-3';
@@ -19,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (tituloExemplos) {
 		tituloExemplos.insertAdjacentElement('afterend', botaoToggle);
 	}
-
 	let expandido = false;
 	botaoToggle.addEventListener('click', () => {
 		expandido = !expandido;

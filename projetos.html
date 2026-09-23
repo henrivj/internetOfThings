@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta content="Projetos práticos com Arduino Uno e ESP8266: sensor ultrassônico, temperatura, música com buzzer e contador com display de 7 segmentos." name="description" />
+		<link href="./assets/css/style.css" rel="stylesheet" />
+		<link href="./assets/css/projetos.css" rel="stylesheet" />
+		<script defer="" src="./assets/js/scriptProjetos.js"></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet" />
+		<script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com" rel="preconnect" />
+		<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet" />
+		<title>Projetos Práticos</title>
+	</head>
+	<body>
+		<header class="navbar navbar-expand-md fixed-top bg-blur px-3 px-md-4 py-2 justify-content-between">
+			<a class="navbar-brand me-0 px-2 py-1 text-decoration-none hvj-outline hvj-text rounded-pill" href="./index.html"> <i class="fa-solid fa-industry hvj-text"></i> Home </a>
+			<button aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menu" class="navbar-toggler border-0 shadow-none hvj-text p-1" data-bs-target="#navPrincipal" data-bs-toggle="collapse" type="button">
+				<i class="fa-solid fa-bars fs-4 hvj-text"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navPrincipal">
+				<nav class="navbar-nav align-items-md-center gap-md-2 mt-2 mt-md-0 ms-md-auto">
+					<a class="nav-link hvj-text px-2" href="./robos.html">Robôs</a>
+					<a class="nav-link hvj-text px-2" href="./sensores.html">Sensores</a>
+					<a class="nav-link hvj-text px-2" href="./arduino.html">Arduino</a>
+					<a class="nav-link hvj-text px-2" href="./projetos.html">Projetos</a>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<section class="container-fluid bg-grey text-light d-flex align-items-center min-vh-100">
+				<div class="container" data-aos="fade-up">
+					<span class="hvj-outline hvj-text rounded-pill px-3 py-1 d-inline-block mb-3">Projetos Práticos</span>
+					<h1 class="display-3 fw-bold hvj-text">Arduino UNO &amp; ESP8266</h1>
+					<p class="lead col-lg-9">Quatro projetos desenvolvidos na prática, com vídeos para comparar a simulação no Tinkercad e a montagem física.</p>
+				</div>
+			</section>
+			<section class="container my-5 py-4">
+				<div class="row mb-4" data-aos="fade-up">
+					<div class="col-12 col-lg-8">
+						<span class="hvj-text small text-uppercase fw-bold">Arduino UNO</span>
+						<h2>Projetos com Arduino UNO</h2>
+						<p class="mb-0">Três montagens usando sensores, LED e buzzer para demonstrar leitura de dados e controle de saídas.</p>
+					</div>
+				</div>
+				<div class="row g-4">
+					<div class="col-12" data-aos="fade-up">
+						<article class="card-item rounded-4 p-4 p-md-5">
+							<div class="row g-4 align-items-start">
+								<div class="col-12 col-lg-4">
+									<span class="badge-categoria mb-3">Arduino UNO</span>
+									<h2 class="hvj-text fs-3">Sensor Ultrassônico</h2>
+									<p class="mb-0">O sensor mede a distância de um objeto. Um limite é ajustado pelo potenciômetro. O LED fica apagado quando a área está livre, pisca em atenção e permanece aceso quando o objeto está próximo.</p>
+								</div>
+								<div class="col-12 col-lg-8">
+									<div class="row g-3">
+										<div class="col-12 col-md-6">
+											<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-desktop me-2"></i>Tinkercad</h3>
+											<video class="projeto-video" controls="" muted preload="metadata">
+												<source src="./assets/videos/arduino-ultrassonico-tinkercad.mp4" type="video/mp4" />
+											</video>
+										</div>
+										<div class="col-12 col-md-6">
+											<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-microchip me-2"></i>Projeto físico</h3>
+											<video class="projeto-video" controls="" muted preload="metadata">
+												<source src="./assets/videos/arduino-ultrassonico-fisico.mp4" type="video/mp4" />
+											</video>
+										</div>
+									</div>
+								</div>
+							</div>
+							<details class="codigo-dropdown mt-4">
+								<summary class="codigo-summary"><i class="fa-solid fa-code me-2"></i>Ver código</summary>
+								<div class="codigo-conteudo">
+									<pre class="codigo-bloco mb-0"><code>const byte LED = 13;
+const byte PING = 7;
+const byte AJUSTE = A0;
+
+float medirDistancia() {
+  pinMode(PING, OUTPUT);
+
+  digitalWrite(PING, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(PING, HIGH);
+  delayMicroseconds(5);
+
+  digitalWrite(PING, LOW);
+
+  pinMode(PING, INPUT);
+
+  return pulseIn(PING, HIGH) / 58.0;
+}
+
+void setup() {
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int limite = map(analogRead(AJUSTE), 0, 1023, 20, 70);
+  float distancia = medirDistancia();
+
+  Serial.print("Leitura = ");
+  Serial.print(distancia);
+  Serial.print("cm | Configurado = ");
+  Serial.print(limite);
+  Serial.println("cm");
+
+  if (distancia &gt;= limite) {
+    digitalWrite(LED, LOW);
+    Serial.println("STATUS: LIVRE");
+  }
+  else if (distancia &gt;= limite * 0.45) {
+    digitalWrite(LED, HIGH);
+    delay(180);
+
+    digitalWrite(LED, LOW);
+    delay(180);
+
+    Serial.println("STATUS: ATENCAO");
+  }
+  else {
+    digitalWrite(LED, HIGH);
+    Serial.println("STATUS: PARE");
+  }
+}</code></pre>
+								</div>
+							</details>
+						</article>
+					</div>
+					<div class="col-12" data-aos="fade-up">
+						<article class="card-item rounded-4 p-4 p-md-5">
+							<div class="row g-4 align-items-start">
+								<div class="col-12 col-lg-4">
+									<span class="badge-categoria mb-3">Arduino UNO</span>
+									<h2 class="hvj-text fs-3">Sensor de Temperatura</h2>
+									<p class="mb-0">O Arduino lê a temperatura do sensor e controla o LED de acordo com o valor medido, permitindo visualizar de forma simples quando a temperatura muda de faixa.</p>
+								</div>
+								<div class="col-12 col-lg-8">
+									<div class="row g-3">
+										<div class="col-12 col-md-6">
+											<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-desktop me-2"></i>Tinkercad</h3>
+											<video class="projeto-video" controls="" muted preload="metadata">
+												<source src="./assets/videos/arduino-temperatura-tinkercad.mp4" type="video/mp4" />
+											</video>
+										</div>
+										<div class="col-12 col-md-6">
+											<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-microchip me-2"></i>Projeto físico</h3>
+											<video class="projeto-video" controls="" muted preload="metadata">
+												<source src="./assets/videos/arduino-temperatura-fisico.mp4" type="video/mp4" />
+											</video>
+										</div>
+									</div>
+								</div>
+							</div>
+							<details class="codigo-dropdown mt-4">
+								<summary class="codigo-summary"><i class="fa-solid fa-code me-2"></i>Ver código</summary>
+								<div class="codigo-conteudo">
+									<p class="small mb-3">Código demonstrativo para sensor TMP36 no pino A0 e LED no pino 13.</p>
+									<pre class="codigo-bloco mb-0"><code>const byte LED = 13;
+const byte SENSOR = A0;
+
+void setup() {
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int leitura = analogRead(SENSOR);
+
+  float tensao = leitura * (5.0 / 1023.0);
+  float temperatura = (tensao - 0.5) * 100.0;
+
+  Serial.print("Temperatura: ");
+  Serial.print(temperatura);
+  Serial.println(" C");
+
+  if (temperatura &gt;= 30) {
+    digitalWrite(LED, HIGH);
+    Serial.println("STATUS: QUENTE");
+  }
+  else {
+    digitalWrite(LED, LOW);
+    Serial.println("STATUS: NORMAL");
+  }
+
+  delay(500);
+}</code></pre>
+								</div>
+							</details>
+						</article>
+					</div>
+					<div class="col-12" data-aos="fade-up">
+						<article class="card-item rounded-4 p-4 p-md-5">
+							<div class="row g-4 align-items-start">
+								<div class="col-12 col-lg-4">
+									<span class="badge-categoria mb-3">Arduino UNO</span>
+									<h2 class="hvj-text fs-3">Música com Buzzer</h2>
+									<p class="mb-0">O Arduino controla o buzzer para reproduzir uma sequência de notas, alterando a frequência e a duração de cada som para formar uma música.</p>
+								</div>
+								<div class="col-12 col-lg-8">
+									<div class="row g-3">
+										<div class="col-12 col-md-6">
+											<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-desktop me-2"></i>Tinkercad</h3>
+											<video class="projeto-video" controls="" preload="metadata">
+												<source src="./assets/videos/arduino-buzzer-tinkercad.mp4" type="video/mp4" />
+											</video>
+										</div>
+										<div class="col-12 col-md-6">
+											<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-microchip me-2"></i>Projeto físico</h3>
+											<video class="projeto-video" controls="" preload="metadata">
+												<source src="./assets/videos/arduino-buzzer-fisico.mp4" type="video/mp4" />
+											</video>
+										</div>
+									</div>
+								</div>
+							</div>
+							<details class="codigo-dropdown mt-4">
+								<summary class="codigo-summary"><i class="fa-solid fa-code me-2"></i>Ver código</summary>
+								<div class="codigo-conteudo">
+									<p class="small mb-3">Trecho demonstrativo baseado no projeto “Crystal Castles - Kerosene” do HiBit. <a class="hvj-text" href="https://github.com/hibit-dev/buzzer/blob/master/src/songs/crystal_castles_kerosene/crystal_castles_kerosene.ino" rel="noopener noreferrer" target="_blank">Abrir código completo no GitHub</a></p>
+									<pre class="codigo-bloco mb-0"><code>const byte BUZZER = 9;
+
+// Trecho demonstrativo de Crystal Castles - Kerosene.
+// A versão completa está no repositório HiBit indicado abaixo.
+int melodia[] = {
+  392, 466, 523, 587, 587, 523, 622, 587,
+  587, 523, 523, 466, 440, 466, 466,
+  466, 523, 587
+};
+
+int duracoes[] = {
+  4, 3, 4, 4, 2, 3, 4, 1,
+  3, 4, 2, 4, 3, 4, 1,
+  3, 4, 1
+};
+
+void setup() {
+  pinMode(BUZZER, OUTPUT);
+}
+
+void loop() {
+  int quantidade = sizeof(duracoes) / sizeof(int);
+
+  for (int nota = 0; nota &lt; quantidade; nota++) {
+    int duracao = 1000 / duracoes[nota];
+
+    tone(BUZZER, melodia[nota], duracao);
+    delay(duracao * 1.30);
+    noTone(BUZZER);
+  }
+
+  delay(1000);
+}</code></pre>
+								</div>
+							</details>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section class="container-fluid bg-grey py-5">
+				<div class="container">
+					<div class="row mb-4" data-aos="fade-up">
+						<div class="col-12 col-lg-8 text-light">
+							<span class="hvj-text small text-uppercase fw-bold">ESP8266</span>
+							<h2>Projeto com ESP8266</h2>
+							<p class="mb-0">Controle de um display de 7 segmentos usando dois botões para aumentar e diminuir um contador.</p>
+						</div>
+					</div>
+					<article class="bg-grey-light rounded-4 p-4 p-md-5 text-light" data-aos="fade-up">
+						<div class="row g-4 align-items-start">
+							<div class="col-12 col-lg-4">
+								<span class="badge-categoria mb-3">ESP8266</span>
+								<h2 class="hvj-text fs-3">Contador Simples</h2>
+								<p class="mb-0">Dois botões controlam um contador de 0 a 9. Um botão aumenta o valor e o outro diminui. O número atual aparece em um display de 7 segmentos conectado aos pinos D0 até D6.</p>
+							</div>
+							<div class="col-12 col-lg-8">
+								<div class="row g-3">
+									<div class="col-12 col-md-6">
+										<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-desktop me-2"></i>Tinkercad</h3>
+										<video class="projeto-video" controls="" muted preload="metadata">
+											<source src="./assets/videos/esp8266-contador-tinkercad.mp4" type="video/mp4" />
+										</video>
+									</div>
+									<div class="col-12 col-md-6">
+										<h3 class="fs-6 hvj-text mb-2"><i class="fa-solid fa-microchip me-2"></i>Projeto físico</h3>
+										<video class="projeto-video" controls="" muted preload="metadata">
+											<source src="./assets/videos/esp8266-contador-fisico.mp4" type="video/mp4" />
+										</video>
+									</div>
+								</div>
+							</div>
+						</div>
+						<details class="codigo-dropdown mt-4">
+							<summary class="codigo-summary"><i class="fa-solid fa-code me-2"></i>Ver código</summary>
+							<div class="codigo-conteudo">
+								<pre class="codigo-bloco mb-0"><code>int contador = 0;
+
+int aumentarAnterior = LOW;
+int diminuirAnterior = LOW;
+
+// Ordem: a, b, c, d, e, f, g
+int segmentos[7] = {
+  D0, D1, D2, D3, D4, D5, D6
+};
+
+// HIGH = ligado
+// LOW = desligado
+int numeros[10][7] = {
+  {1, 1, 1, 1, 1, 1, 0}, // 0
+  {0, 1, 1, 0, 0, 0, 0}, // 1
+  {1, 1, 0, 1, 1, 0, 1}, // 2
+  {1, 1, 1, 1, 0, 0, 1}, // 3
+  {0, 1, 1, 0, 0, 1, 1}, // 4
+  {1, 0, 1, 1, 0, 1, 1}, // 5
+  {1, 0, 1, 1, 1, 1, 1}, // 6
+  {1, 1, 1, 0, 0, 0, 0}, // 7
+  {1, 1, 1, 1, 1, 1, 1}, // 8
+  {1, 1, 1, 1, 0, 1, 1}  // 9
+};
+
+void setup() {
+  pinMode(D7, INPUT);
+  pinMode(D8, INPUT);
+
+  Serial.begin(9600);
+
+  for (int i = 0; i &lt; 7; i++) {
+    pinMode(segmentos[i], OUTPUT);
+  }
+}
+
+void loop() {
+  int diminuir = digitalRead(D7);
+  int aumentar = digitalRead(D8);
+
+  if (diminuir == HIGH &amp;&amp;
+      diminuirAnterior == LOW &amp;&amp;
+      contador &gt; 0) {
+    contador--;
+  }
+
+  if (aumentar == HIGH &amp;&amp;
+      aumentarAnterior == LOW &amp;&amp;
+      contador &lt; 9) {
+    contador++;
+  }
+
+  diminuirAnterior = diminuir;
+  aumentarAnterior = aumentar;
+
+  for (int i = 0; i &lt; 7; i++) {
+    digitalWrite(
+      segmentos[i],
+      numeros[contador][i]
+    );
+  }
+
+  Serial.print("Aumentar: ");
+  Serial.print(aumentar);
+
+  Serial.print(" | Diminuir: ");
+  Serial.print(diminuir);
+
+  Serial.print(" | Contador: ");
+  Serial.println(contador);
+
+  delay(50);
+}</code></pre>
+							</div>
+						</details>
+					</article>
+				</div>
+			</section>
+		</main>
+		<footer class="container-fluid py-3 bg-black text-light">
+			<div class="container-lg d-flex flex-column flex-md-row justify-content-between align-items-center">
+				<a class="d-inline-block mb-3 mb-md-0 text-decoration-none hvj-text" href="./index.html"> <i class="fa-solid fa-industry"></i> IoT &amp; Robótica Industrial </a>
+				<p class="text-center small hvj-text m-0">Avaliação Prática · Internet das Coisas · SENAI SC</p>
+			</div>
+		</footer>
+	</body>
+</html>
